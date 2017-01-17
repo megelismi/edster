@@ -7,6 +7,10 @@ import OutputCard from './output_card';
 import InputCard from './input_card';
 
 class GameContainer extends React.Component {
+	componentDidMount () {
+		props.getUser();
+	}
+
 	render () {
 		return (
 			<div>
@@ -26,4 +30,12 @@ class GameContainer extends React.Component {
 	}
 }
 
-export default GameContainer;
+const mapStateToProps = (state) => ({});
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		getUser: () => { dispatch(actions.getUser()) }
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GameContainer);
