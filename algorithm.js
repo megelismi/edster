@@ -1,10 +1,10 @@
-// var languageData = {"hola": "hello", "adios": "goodbye", "si": "yes", "mesa": "table"}; 
+// var languageData = {"hola": "hello", "adios": "goodbye", "si": "yes", "mesa": "table"};
 var languageData = [
 	{"hola": "hello", frequency: 1},
 	{"adios": "goodbye", frequency: 2},
 	{"si": "yes", frequency: 1},
 	{"mesa": "table", frequency: 0}
-]; 
+];
 
 //function that presents each pair in the object an equal number of times
 
@@ -25,8 +25,8 @@ var languageData = [
 
 //function that manipulates the frequency rating based on user performance (function adjustFrequency())
 
-	//all words start with 1, if they get it right it decrements by 1, if they get it wrong it increments by 1. 
-	//maxes out at 0 and 2. 
+	//all words start with 1, if they get it right it decrements by 1, if they get it wrong it increments by 1.
+	//maxes out at 0 and 2.
 
 
 // const languageData = [
@@ -34,11 +34,11 @@ var languageData = [
 // 	{"adios": "goodbye", frequency: 2},
 // 	{"si": "yes", frequency: 1},
 // 	{"mesa": "table", frequency: 0}
-// ]; 
+// ];
 
 
 // const outputVocab = array => {
-//   var words = []; 
+//   var words = [];
 //   array.forEach(function(object) {
 
 //   })
