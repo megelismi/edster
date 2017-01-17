@@ -10,9 +10,9 @@ export const getUser = () => dispatch => {
 			return res.json();
 		}).then(res => {
 			console.log(res);
-			dispatch(actions.getUserSuccess(res));
+			dispatch(getUserSuccess(res));
 		}).catch(err => {
-			dispatch(actions.getUserError(err));
+			dispatch(getUserError(err));
 		});
 }
 
@@ -24,7 +24,7 @@ export const getUserSuccess = userInfo => ({
 });
 
 export const GET_USER_ERROR = 'GET_USER_ERROR';
-export const getUserError = () => ({
+export const getUserError = error => ({
 	type: GET_USER_ERROR,
 	error
 });

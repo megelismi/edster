@@ -1,6 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-function Feedback () {
+function Feedback (props) {
 	let feedback = `Keep up the good work, ${props.name}!`;
 	return <p>{feedback}</p>
 }

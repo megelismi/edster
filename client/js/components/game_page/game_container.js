@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../actions/actions';
 import LogoutBtn from './logout_btn';
 import ProgressBtn from './progress_btn';
 import ScoreBtn from './score_btn';
@@ -7,8 +9,12 @@ import OutputCard from './output_card';
 import InputCard from './input_card';
 
 class GameContainer extends React.Component {
+	constructor (props) {
+		super (props);
+	}
+
 	componentDidMount () {
-		props.getUser();
+		this.props.getUser();
 	}
 
 	render () {

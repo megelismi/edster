@@ -1,4 +1,4 @@
-import * as actions from './actions/actions';
+import * as actions from '../actions/actions';
 import { combineReducers } from 'redux';
 
 const userInfo = (state = {}, action) => {
@@ -17,3 +17,7 @@ const userInfo = (state = {}, action) => {
 			return state;
 	}
 }
+
+export default combineReducers({
+	userInfo
+});

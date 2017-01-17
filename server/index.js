@@ -1,9 +1,9 @@
 import 'babel-polyfill';
 import express from 'express';
 import bodyParser from 'body-parser';
-import mongoose from 'mongoose'; 
+import mongoose from 'mongoose';
 
-import User from './models/users'; 
+import User from './models/users';
 
 mongoose.Promise = global.Promise;
 
@@ -13,16 +13,16 @@ const PORT = process.env.PORT || 8080;
 console.log(`Server running in ${process.env.NODE_ENV} mode`);
 
 const app = express();
-const jsonParser = bodyParser.json(); 
+const jsonParser = bodyParser.json();
 
 app.use(express.static(process.env.CLIENT_PATH));
 
 app.get('/test', jsonParser, (req, res) => {
     User.find({}, (err, data) => {
-        console.log('data', data); 
+        console.log('data', data);
         if (err){
-            console.log("error was made:", err); 
-            res.send(err); 
+            console.log("error was made:", err);
+            res.send(err);
         }
         res.status(200).json(data);
     })
@@ -37,8 +37,8 @@ app.post('/test', jsonParser, (req, res) => {
 
 app.put('/test/:id', jsonParser, (req, res) => {
    const {id} = req.params;
-   const {body} = req; 
-   User.findByIdAndUpdate(id, body) 
+   const {body} = req;
+   User.findByIdAndUpdate(id, body)
    .then(data => res.status(200).json(data))
    .catch(err => console.log(err))
 })
