@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var questionSchema = mongoose.Schema({
 	english: String,
-	french: String 
+	french: String
 })
 
 var Question = mongoose.model('Question', questionSchema);

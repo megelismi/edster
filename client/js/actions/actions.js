@@ -19,8 +19,7 @@ export const getUser = () => dispatch => {
 export const GET_USER_SUCCESS = 'GET_USER_SUCCESS';
 export const getUserSuccess = userInfo => ({
 	type: GET_USER_SUCCESS,
-	name: userInfo.name,
-	id: userInfo.id
+	userInfo
 });
 
 export const GET_USER_ERROR = 'GET_USER_ERROR';
