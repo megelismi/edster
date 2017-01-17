@@ -5,4 +5,14 @@ function Feedback () {
 	return <p>{feedback}</p>
 }
 
-export default Feedback;
+const mapStateToProps = (state) => ({
+	name: state.userInfo.name
+});
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		getUser: () => { dispatch(actions.getUser()) }
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Feedback);
