@@ -9,6 +9,7 @@ import { Router, Route, hashHistory } from 'react-router';
 import store from './store';
 import GameContainer from './components/game_page/game_container';
 import LandingContainer from './components/landing_page/landing_container';
+import ProgressContainer from './components/progress_report/progress_container';
 
 document.addEventListener('DOMContentLoaded', () => {
 	return ReactDOM.render(
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			<Router history={hashHistory}>
 				<Route path="/welcome" component={LandingContainer} />
 				<Route path="/quiz" component={GameContainer} />
+				<Route path="/progress" component={ProgressContainer} />
 			</Router>
 		</Provider>,
 		document.getElementById('app')

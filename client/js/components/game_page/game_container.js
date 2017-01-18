@@ -4,7 +4,7 @@ import * as actions from '../../actions/actions';
 import LogoutBtn from './logout_btn';
 import ProgressBtn from './progress_btn';
 import CorrectScoreBtn from './correct_score_btn';
-import IncorrectScoreBtn from './incorrect_score_btn'; 
+import IncorrectScoreBtn from './incorrect_score_btn';
 import Feedback from './feedback';
 import OutputCard from './output_card';
 import InputCard from './input_card';
@@ -50,7 +50,7 @@ class GameContainer extends React.Component {
 					<LogoutBtn />
 					<ProgressBtn />
 					<div className={'feedback-container'}>
-						<Feedback correct={this.state.correct} incorrect={this.state.incorrect} user={this.props.user} />
+						<Feedback current={this.state.current} correctCount={this.state.correct} user={this.props.user} />
 					</div>
 					<div className={'cards-container'}>
 						<OutputCard question={this.props.selected} />
