@@ -39,7 +39,7 @@ app.get('/users/:username', jsonParser, (req, res) => {
             console.log("error was made:", err);
             res.send(err);
         }
-        console.log(data); 
+        console.log(data);
         res.status(200).json(data.name);
     })
 })
