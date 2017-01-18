@@ -26,9 +26,12 @@ class GameContainer extends React.Component {
 	}
 
 	changeCount (status) {
+		const { correct, incorrect } = this.state;
+		const { high_score, highScore } = this.props;
 		status ?
-			this.setState({ correct: this.state.correct + 1 }) :
-			this.setState({ incorrect: this.state.incorrect + 1 }) ;
+			this.setState({ correct: correct + 1 }) :
+			this.setState({ incorrect: incorrect + 1 }) ;
+		if (correct + 1 > high_score) { highScore(correct + 1) };
 	}
 
 	route () {
@@ -65,7 +68,7 @@ class GameContainer extends React.Component {
 const mapStateToProps = (state) => ({
 	user: state.userInfo.user,
 	selected: state.questionInfo.selected_question,
-	high_score: state.questionInfo.high_score
+	high_score: state.userInfo.high_score
 });
 
 const mapDispatchToProps = (dispatch) => {

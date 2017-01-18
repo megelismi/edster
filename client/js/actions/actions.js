@@ -39,6 +39,7 @@ export const getQuestion = () => dispatch => {
 			}
 			return res.json();
 		}).then(res => {
+			console.log('get result', res);
 			dispatch(getQuestionSuccess(res))
 		}).catch(err => {
 			dispatch(getQuestionError(err))
@@ -61,14 +62,36 @@ export const getQuestionError = error => ({
 
 // update user's current score
 
-export const sendResult = (result) => {
-	console.log('send result action', result);
+export const sendResult = (result) => dispatch => {
+	return fetch(
+		users_url + '/Megan/questions',
+		{
+			method: "PUT",
+			body: JSON.stringify({ result }),
+			headers: {"Content-Type": "application/json"}
+		}
+	).then(res => {
+		if (!res.ok) {
+			throw new Error(res.status);
+		}
+	}).then(() => {
+		dispatch(getQuestion());
+	}).catch(err => {
+		dispatch(sendQuestionError(err));
+	});
 }
+
+export const SEND_QUESTION_ERROR = 'SEND_QUESTION_ERROR';
+export const sendQuestionError = error => ({
+	type: SEND_QUESTION_ERROR,
+	error
+});
+
 
 // update high score_btn
 
 export const HIGH_SCORE = 'HIGH_SCORE';
-export const highScore = score => {
+export const highScore = score => ({
 	type: HIGH_SCORE,
 	score
-}
+})

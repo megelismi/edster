@@ -1,7 +1,7 @@
 import * as actions from '../actions/actions';
 import { combineReducers } from 'redux';
 
-const userInfo = (state = {}, action) => {
+const userInfo = (state = { high_score: 0 }, action) => {
 	switch (action.type) {
 		case actions.GET_USER_SUCCESS:
 			return state = Object.assign({}, state, {
@@ -29,8 +29,13 @@ const questionInfo = (state = {}, action) => {
 			});
 		case actions.GET_QUESTION_ERROR:
 			return state = Object.assign({}, state, {
-				error: true,
-				error_type: action.error
+				get_error: true,
+				get_error_type: action.error
+			});
+		case actions.SEND_QUESTION_ERROR:
+			return state = Object.assign({}, state, {
+				send_error: true,
+				send_error_type: action.error
 			});
 		default:
 			return state;

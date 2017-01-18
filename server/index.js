@@ -1,9 +1,7 @@
-
 import 'babel-polyfill';
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-
 import User from './models/users';
 import Question from './models/questions';
 
@@ -18,7 +16,6 @@ const app = express();
 const jsonParser = bodyParser.json();
 
 app.use(express.static(process.env.CLIENT_PATH));
-
 
 app.get('/users/:username/questions', jsonParser, (req, res) => {
     const {username} = req.params;
@@ -52,6 +49,7 @@ app.post('/users', jsonParser, (req, res) => {
     .catch(err => console.log(err))
 })
 
+
 app.post('/questions', jsonParser, (req, res) => {
     console.log(req.body)
     Question.create(req.body)
@@ -59,25 +57,25 @@ app.post('/questions', jsonParser, (req, res) => {
     .catch(err => console.log(err))
 })
 
-
-
 const spaceQuestions = (array, lastQuestionAnswered) => {
   if (!lastQuestionAnswered.correct) {
     var question = array.splice(0, 1)
-    array.splice(3, 0, question);
+    array.splice(3, 0, question[0]);
   }
   else {
     var shifted = array.shift();
     array.push(lastQuestionAnswered);
   }
-
   return array;
-
 }
+
 
 app.put('/users/:username/questions', jsonParser, (req, res) => {
    const {username} = req.params;
+
    const {body} = req; 
+
+
    let updatedQuestionBank;
 
     User.findOne({'name': username}, (err, data) => {
@@ -85,8 +83,7 @@ app.put('/users/:username/questions', jsonParser, (req, res) => {
             console.log("error was made:", err);
             res.send(err);
         }
-        console.log('data', data); 
-        updatedQuestionBank = spaceQuestions(data.questionBank, body);
+        updatedQuestionBank = spaceQuestions(data.questionBank, body.result);
         data.questionBank = updatedQuestionBank;
         console.log('updated', updatedQuestionBank)
         data.save();
@@ -100,8 +97,6 @@ app.delete('/users/:id', (req, res) => {
     .then(() => res.status(200).json(req.params.id))
     .catch(err => console.log('delete error'))
 })
-
-
 function runServer() {
     var databaseUri = process.env.DATABASE_URI || global.databaseUri || 'mongodb://user:user@ds119748.mlab.com:19748/flashcards';
     mongoose.connect(databaseUri)
@@ -111,13 +106,11 @@ function runServer() {
                 console.error(err);
                 reject(err);
             }
-
             const host = HOST || 'localhost';
             console.log(`Listening on ${host}:${PORT}`);
         });
     });
 }
-
 if (require.main === module) {
     runServer();
 }

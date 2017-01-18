@@ -17,6 +17,8 @@ class InputCard extends React.Component {
 
 		changeCount(correct);
 		sendResult(newObj);
+
+		this.answer.value = '';
 	}
 
 	render () {
