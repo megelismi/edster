@@ -8,6 +8,10 @@ const userInfo = (state = {}, action) => {
 				id: action.userInfo[0]._id,
 				user: action.userInfo[0].name
 			});
+		case actions.HIGH_SCORE:
+			return state = Object.assign({}, state, {
+				high_score: action.score
+			});
 		case actions.GET_ERROR:
 			return state = Object.assign({}, state, {
 				error: true,

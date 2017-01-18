@@ -64,3 +64,11 @@ export const getQuestionError = error => ({
 export const sendResult = (result) => {
 	console.log('send result action', result);
 }
+
+// update high score_btn
+
+export const HIGH_SCORE = 'HIGH_SCORE';
+export const highScore = score => {
+	type: HIGH_SCORE,
+	score
+}

@@ -19,17 +19,22 @@ class GameContainer extends React.Component {
 	}
 
 	componentDidMount () {
+		// this.props.highScore(0);
 		this.props.getUser();
 		this.props.getQuestion();
 	}
 
 	changeCount (status) {
 		status ?
-			this.setState({ correct: this.state.correct++ }) :
-			this.setState({ incorrect: this.state.incorrect++ }) ;
+			this.setState({ correct: this.state.correct + 1 }) :
+			this.setState({ incorrect: this.state.incorrect + 1 }) ;
+		// if (this.state.correct > this.props.high_score) {
+		// 	this.props.highScore(this.state.correct)
+		// }
 	}
 
 	render () {
+		console.log('state', this.state);
 		if (!this.props.selected) {
 			return <div></div>
 		} else {
@@ -54,13 +59,15 @@ class GameContainer extends React.Component {
 
 const mapStateToProps = (state) => ({
 	user: state.userInfo.user,
-	selected: state.questionInfo.selected_question
+	selected: state.questionInfo.selected_question,
+	high_score: state.questionInfo.high_score
 });
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		getUser: () => { dispatch(actions.getUser()) },
-		getQuestion: () => { dispatch(actions.getQuestion()) }
+		getQuestion: () => { dispatch(actions.getQuestion()) },
+		highScore: (num) => { dispatch(actions.highScore(num)) }
 	}
 }
 
