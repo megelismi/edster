@@ -63,14 +63,11 @@ export const getQuestionError = error => ({
 // update user's current score
 
 export const sendResult = (result) => dispatch => {
-	console.log('updated object to put', result);
-	let info = result[0];
-	console.log(info);
 	return fetch(
 		users_url + '/Megan/questions',
 		{
 			method: "PUT",
-			body: JSON.stringify({ info }),
+			body: JSON.stringify({ result }),
 			headers: {"Content-Type": "application/json"}
 		}
 	).then(res => {

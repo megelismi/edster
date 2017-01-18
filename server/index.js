@@ -1,9 +1,7 @@
-
 import 'babel-polyfill';
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-
 import User from './models/users';
 import Question from './models/questions';
 
@@ -30,6 +28,7 @@ app.get('/users/:username/questions', jsonParser, (req, res) => {
     })
 })
 
+
 app.get('/users/:username', jsonParser, (req, res) => {
     const {username} = req.params;
     User.findOne({'name': username}, (err, data) => {
@@ -42,12 +41,14 @@ app.get('/users/:username', jsonParser, (req, res) => {
     })
 })
 
+
 app.post('/users', jsonParser, (req, res) => {
     console.log(req.body)
     User.create(req.body)
     .then(data => res.status(200).json(data))
     .catch(err => console.log(err))
 })
+
 
 app.post('/questions', jsonParser, (req, res) => {
     console.log(req.body)
@@ -56,44 +57,48 @@ app.post('/questions', jsonParser, (req, res) => {
     .catch(err => console.log(err))
 })
 
+
 const spaceQuestions = (array, lastQuestionAnswered) => {
   if (!lastQuestionAnswered.correct) {
     var question = array.splice(0, 1)
-    array.splice(3, 0, question);
+    array.splice(3, 0, question[0]);
   }
   else {
     var shifted = array.shift();
     array.push(lastQuestionAnswered);
   }
-
   return array;
-
 }
 
-app.put('/users/:username/questions', jsonParser, (req, res) => {
-  const {username} = req.params;
-  const {body} = req;
-  let updatedQuestionBank;
 
-   User.findOne({'name': username}, (err, data) => {
-       if (err){
-           console.log("error was made:", err);
-           res.send(err);
-       }
-       updatedQuestionBank = spaceQuestions(data.questionBank, body);
-       data.questionBank = updatedQuestionBank;
-       data.save();
-       res.status(200).json({});
-   })
+app.put('/users/:username/questions', jsonParser, (req, res) => {
+   const {username} = req.params;
+   const {body} = req;
+	 console.log('put body', body);
+
+   let updatedQuestionBank;
+
+    User.findOne({'name': username}, (err, data) => {
+        if (err){
+            console.log("error was made:", err);
+            res.send(err);
+        }
+        console.log('data', data);
+        updatedQuestionBank = spaceQuestions(data.questionBank, body.result);
+
+        data.questionBank = updatedQuestionBank;
+        console.log('updated', updatedQuestionBank)
+        data.save();
+        res.status(200).json({});
+    })
 });
+
 
 app.delete('/users/:id', (req, res) => {
   User.findByIdAndRemove(req.params.id)
     .then(() => res.status(200).json(req.params.id))
     .catch(err => console.log('delete error'))
 })
-
-
 function runServer() {
     var databaseUri = process.env.DATABASE_URI || global.databaseUri || 'mongodb://user:user@ds119748.mlab.com:19748/flashcards';
     mongoose.connect(databaseUri)
@@ -103,13 +108,11 @@ function runServer() {
                 console.error(err);
                 reject(err);
             }
-
             const host = HOST || 'localhost';
             console.log(`Listening on ${host}:${PORT}`);
         });
     });
 }
-
 if (require.main === module) {
     runServer();
 }

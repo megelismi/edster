@@ -1,5 +1,6 @@
 
-let questions = [
+
+[
     {
         "french": "le pain",
         "english": "bread",
@@ -78,32 +79,30 @@ let questions = [
 ]
 
 
-let userQuestions = questions; 
+let userQuestions = questions;
 
 const assignCorrectness = (inputQuestion, bool) => {
   userQuestions.forEach(function(question) {
     if (inputQuestion.id == question.id) {
-      question.correct = bool; 
+      question.correct = bool;
     }
   });
 };
 
-// assignCorrectness({ french: "le pain', english: 'bread', id: 1 }, false); 
+// assignCorrectness({ french: "le pain', english: 'bread', id: 1 }, false);
 
 const spaceQuestions = questionObj => {
   let lastQuestionAnswered = questionObj;
 
   if (!lastQuestionAnswered.correct) {
     var question = userQuestions.splice(0, 1)
-    userQuestions.splice(3, 0, question); 
+    userQuestions.splice(3, 0, question);
   }
   else {
-    var shifted = userQuestions.shift(); 
-    userQuestions.push(lastQuestionAnswered); 
+    var shifted = userQuestions.shift();
+    userQuestions.push(lastQuestionAnswered);
   }
-  
-  return userQuestions; 
-  
+
+  return userQuestions;
+
 }
-
-
