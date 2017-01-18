@@ -15,7 +15,8 @@ class GameContainer extends React.Component {
 		super ();
 		this.state = {
 			correct: 0,
-			incorrect: 0
+			incorrect: 0,
+			current: 'start'
 		}
 		this.changeCount = this.changeCount.bind(this);
 	}
@@ -29,8 +30,8 @@ class GameContainer extends React.Component {
 		const { correct, incorrect } = this.state;
 		const { high_score, highScore } = this.props;
 		status ?
-			this.setState({ correct: correct + 1 }) :
-			this.setState({ incorrect: incorrect + 1 }) ;
+			this.setState({ correct: correct + 1, current: true }) :
+			this.setState({ incorrect: incorrect + 1, current: false }) ;
 		if (correct + 1 > high_score) { highScore(correct + 1) };
 	}
 
