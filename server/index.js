@@ -20,7 +20,7 @@ const jsonParser = bodyParser.json();
 app.use(express.static(process.env.CLIENT_PATH));
 
 
-app.get('/users/questions', jsonParser, (req, res) => {
+app.get('/users/:username/questions', jsonParser, (req, res) => {
     const {username} = req.params; 
     User.findOne({'name': username}, (err, data) => {
         if (err){
@@ -32,13 +32,14 @@ app.get('/users/questions', jsonParser, (req, res) => {
 })
 
 
-app.get('/users', jsonParser, (req, res) => {
+app.get('/users/:username', jsonParser, (req, res) => {
     const {username} = req.params;
     User.findOne({'name': username}, (err, data) => {
         if (err){
             console.log("error was made:", err);
             res.send(err); 
         }
+        console.log(data); 
         res.status(200).json(data.name);
     })
 })
@@ -81,7 +82,7 @@ const spaceQuestions = (array, lastQuestionAnswered) => {
  
 }
 
-app.put('/users/questions', jsonParser, (req, res) => {
+app.put('/users/:username/questions', jsonParser, (req, res) => {
    const {username} = req.params;
    const {body} = req;
    let updatedQuestionBank;  
