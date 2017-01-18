@@ -1,45 +1,108 @@
-// var languageData = {"hola": "hello", "adios": "goodbye", "si": "yes", "mesa": "table"};
-var languageData = [
-	{"hola": "hello", frequency: 1},
-	{"adios": "goodbye", frequency: 2},
-	{"si": "yes", frequency: 1},
-	{"mesa": "table", frequency: 0}
-];
+let questions = [
+    {
+        "french": "le pain",
+        "english": "bread",
+        "id": 1
+    },
+    {
+        "french": "le poisson",
+        "english": "fish",
+        "id": 2
+    },
+    {
+        "french": "le pamplemousse",
+        "english": "grapefruit",
+        "id": 3
+    },
+    {
+        "french": "le velo",
+        "english": "bicycle",
+        "id": 4
+    },
+    {
+        "french": "l\"immeuble",
+        "english": "building",
+        "id": 5
+    },
+    {
+        "french": "la femme",
+        "english": "woman",
+        "id": 6
+    },
+    {
+        "french": "l\"homme",
+        "english": "man",
+        "id": 7
+    },
+    {
+        "french": "la famille",
+        "english": "family",
+        "id": 8
+    },
+    {
+        "french": "les devoirs",
+        "english": "homework",
+        "id": 9
+    },
+    {
+        "french": "le chien",
+        "english": "dog",
+        "id": 10
+    },
+    {
+        "french": "le chat",
+        "english": "cat",
+        "id": 11
+    },
+    {
+        "french": "la rue",
+        "english": "street",
+        "id": 12
+    },
+    {
+        "french": "les mains",
+        "english": "hands",
+        "id": 13
+    },
+    {
+        "french": "les yeux",
+        "english": "eyes",
+        "id": 14
+    },
+    {
+        "french": "la faim",
+        "english": "hunger",
+        "id": 15
+    }
+]
 
-//function that presents each pair in the object an equal number of times
 
-	//input array of objects that holds language pairs and frequency ratings
-	//output should output one spanish word semi-randomly based off of their frequency ratings
+let userQuestions = questions; 
 
-	//0 gets pushed in (1)
-	//1 gets (2)
-	//2 gets (4)
+const assignCorrectness = (inputQuestion, bool) => {
+  userQuestions.forEach(function(question) {
+    if (inputQuestion.id == question.id) {
+      question.correct = bool; 
+    }
+  });
+};
 
-	//find the lowest frequency rating use that as the base
-	//conditional: if a number is higher than the frequency rating by 1, push it in 2n times, difference of 2 gets pushed in 4n times
+// assignCorrectness({ french: "le pain', english: 'bread', id: 1 }, false); 
 
-	//generate a random index
-	//return that item at the random index
+const spaceQuestions = questionObj => {
+  let lastQuestionAnswered = questionObj;
 
-	//["hola", "hola" "si", "mesa", "si", "adios", "adios", "adios", "adios"]
+  if (!lastQuestionAnswered.correct) {
+    var question = userQuestions.splice(0, 1)
+    userQuestions.splice(3, 0, question); 
+  }
+  else {
+    var shifted = userQuestions.shift(); 
+    userQuestions.push(lastQuestionAnswered); 
+  }
+  
+  return userQuestions; 
+  
+}
 
-//function that manipulates the frequency rating based on user performance (function adjustFrequency())
-
-	//all words start with 1, if they get it right it decrements by 1, if they get it wrong it increments by 1.
-	//maxes out at 0 and 2.
-
-
-// const languageData = [
-// 	{"hola": "hello", frequency: 1},
-// 	{"adios": "goodbye", frequency: 2},
-// 	{"si": "yes", frequency: 1},
-// 	{"mesa": "table", frequency: 0}
-// ];
-
-
-// const outputVocab = array => {
-//   var words = [];
-//   array.forEach(function(object) {
-
-//   })
-// }
+spaceQuestions({ french: 'le pain', english: 'bread', id: 1, correct: true}); 

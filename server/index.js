@@ -19,28 +19,29 @@ const jsonParser = bodyParser.json();
 app.use(express.static(process.env.CLIENT_PATH));
 
 
-app.get('/users', jsonParser, (req, res) => {
-    User.find({}, (err, data) => {
-        console.log('data', data);
+app.get('/users/questions', jsonParser, (req, res) => {
+    const {username} = req.params; 
+    User.findOne({'name': username}, (err, data) => {
         if (err){
             console.log("error was made:", err);
             res.send(err);
         }
-        res.status(200).json(data);
+        res.status(200).json(data.questionBank[0]);
     })
 })
 
-app.get('/users/:username', jsonParser, (req, res) => {
+
+app.get('/users', jsonParser, (req, res) => {
     const {username} = req.params;
-    User.findOne(username, (err, data) => {
-        console.log('data', data);
+    User.findOne({'name': username}, (err, data) => {
         if (err){
             console.log("error was made:", err);
             res.send(err); 
         }
-        res.status(200).json(data);
+        res.status(200).json(data.name);
     })
 })
+
 
 app.post('/users', jsonParser, (req, res) => {
     console.log(req.body)
@@ -56,13 +57,46 @@ app.post('/questions', jsonParser, (req, res) => {
     .catch(err => console.log(err))
 })
 
-app.put('/users/:id', jsonParser, (req, res) => {
-   const {id} = req.params;
+
+   const sampleQ = {
+        "french": "le pain",
+        "english": "bread",
+        "id": 1, 
+        "correct": true
+    }
+
+
+const spaceQuestions = (array, lastQuestionAnswered) => {
+  if (!lastQuestionAnswered.correct) {
+    var question = array.splice(0, 1)
+    array.splice(3, 0, question); 
+  }
+  else {
+    var shifted = array.shift(); 
+    array.push(lastQuestionAnswered); 
+  }
+  
+  return array; 
+ 
+}
+
+app.put('/users/questions', jsonParser, (req, res) => {
+   const {username} = req.params;
    const {body} = req;
-   User.findByIdAndUpdate(id, body)
-   .then(data => res.status(200).json(data))
-   .catch(err => console.log(err))
-})
+   let updatedQuestionBank;  
+
+    User.findOne({'name': username}, (err, data) => {
+        if (err){
+            console.log("error was made:", err);
+            res.send(err);
+        }
+        updatedQuestionBank = spaceQuestions(data.questionBank, sampleQ);
+        data.questionBank = updatedQuestionBank; 
+        data.save(); 
+        res.status(200).json({}); 
+    })
+});
+
 
 app.delete('/users/:id', (req, res) => {
   User.findByIdAndRemove(req.params.id)
