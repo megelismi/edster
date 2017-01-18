@@ -57,7 +57,6 @@ app.post('/questions', jsonParser, (req, res) => {
     .catch(err => console.log(err))
 })
 
-
 const spaceQuestions = (array, lastQuestionAnswered) => {
   if (!lastQuestionAnswered.correct) {
     var question = array.splice(0, 1)
@@ -73,8 +72,9 @@ const spaceQuestions = (array, lastQuestionAnswered) => {
 
 app.put('/users/:username/questions', jsonParser, (req, res) => {
    const {username} = req.params;
-   const {body} = req;
-	 console.log('put body', body);
+
+   const {body} = req; 
+
 
    let updatedQuestionBank;
 
@@ -83,9 +83,7 @@ app.put('/users/:username/questions', jsonParser, (req, res) => {
             console.log("error was made:", err);
             res.send(err);
         }
-        console.log('data', data);
         updatedQuestionBank = spaceQuestions(data.questionBank, body.result);
-
         data.questionBank = updatedQuestionBank;
         console.log('updated', updatedQuestionBank)
         data.save();

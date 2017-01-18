@@ -9,7 +9,7 @@ var User = mongoose.model('User', userSchema);
 
 module.exports = User;
 
-// {"name": "Bob", 
+// {"name": "Megan", 
 // "questionBank":  [
 //     {
 //         "french": "le pain",
@@ -32,7 +32,7 @@ module.exports = User;
 //         "id": 4
 //     },
 //     {
-//         "french": "l\"immeuble",
+//         "french": "l'immeuble",
 //         "english": "building",
 //         "id": 5
 //     },
@@ -42,7 +42,7 @@ module.exports = User;
 //         "id": 6
 //     },
 //     {
-//         "french": "l\"homme",
+//         "french": "l'homme",
 //         "english": "man",
 //         "id": 7
 //     },

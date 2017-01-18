@@ -12,7 +12,7 @@ function Feedback (props) {
 		feedback = `Keep trying. You got this!`
 	}
 
-	return <p>{feedback}</p>
+	return <p className="feedback-text">{feedback}</p>
 }
 
 export default Feedback;
