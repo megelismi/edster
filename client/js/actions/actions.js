@@ -4,7 +4,7 @@ const users_url = "/users";
 // get user
 
 export const getUser = () => dispatch => {
-	return fetch(users_url)
+	return fetch(users_url + '/Megan')
 		.then(res => {
 			if (!res.ok) {
 				throw new Error(res.status);
@@ -32,7 +32,7 @@ export const getError = error => ({
 // get question
 
 export const getQuestion = () => dispatch => {
-	return fetch(users_url + '/bob/questions')
+	return fetch(users_url + '/Megan/questions')
 		.then(res => {
 			if (!res.ok) {
 				throw new Error(res.status);

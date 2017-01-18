@@ -25,7 +25,7 @@ const questionInfo = (state = {}, action) => {
 	switch (action.type) {
 		case actions.GET_QUESTION_SUCCESS:
 			return state = Object.assign({}, state, {
-				selected_question: action.question[0].selected
+				selected_question: action.question
 			});
 		case actions.GET_QUESTION_ERROR:
 			return state = Object.assign({}, state, {
