@@ -21,9 +21,9 @@ class InputCard extends React.Component {
 
 	render () {
 		return (
-			<form onSubmit={this.sendData}>
+			<form className="input-card-form" onSubmit={this.sendData}>
 				<input ref={answer => this.answer = answer}/>
-				<button type="submit">Submit answer</button>
+				<button type="submit">Submit</button>
 			</form>
 		)
 	}

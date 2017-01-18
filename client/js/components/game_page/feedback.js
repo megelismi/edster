@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 function Feedback (props) {
 	let feedback = `Keep up the good work, ${props.user}!`;
-	return <p>{feedback}</p>
+	return <p className="feedback-text">{feedback}</p>
 }
 
 export default Feedback;

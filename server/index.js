@@ -60,13 +60,6 @@ app.post('/questions', jsonParser, (req, res) => {
 })
 
 
-   const sampleQ = {
-        "french": "le pain",
-        "english": "bread",
-        "id": 1,
-        "correct": true
-    }
-
 
 const spaceQuestions = (array, lastQuestionAnswered) => {
   if (!lastQuestionAnswered.correct) {
@@ -84,7 +77,7 @@ const spaceQuestions = (array, lastQuestionAnswered) => {
 
 app.put('/users/:username/questions', jsonParser, (req, res) => {
    const {username} = req.params;
-   const {body} = req;
+   const {body} = req; 
    let updatedQuestionBank;
 
     User.findOne({'name': username}, (err, data) => {
@@ -92,8 +85,10 @@ app.put('/users/:username/questions', jsonParser, (req, res) => {
             console.log("error was made:", err);
             res.send(err);
         }
-        updatedQuestionBank = spaceQuestions(data.questionBank, sampleQ);
+        console.log('data', data); 
+        updatedQuestionBank = spaceQuestions(data.questionBank, body);
         data.questionBank = updatedQuestionBank;
+        console.log('updated', updatedQuestionBank)
         data.save();
         res.status(200).json({});
     })
