@@ -1,3 +1,4 @@
+
 import 'babel-polyfill';
 import express from 'express';
 import bodyParser from 'body-parser';
@@ -124,3 +125,4 @@ function runServer() {
 if (require.main === module) {
     runServer();
 }
+

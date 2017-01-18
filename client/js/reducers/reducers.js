@@ -5,10 +5,29 @@ const userInfo = (state = {}, action) => {
 	switch (action.type) {
 		case actions.GET_USER_SUCCESS:
 			return state = Object.assign({}, state, {
-				name: action.userInfo[0].name,
-				id: action.userInfo[0]._id
+				user: action.name
 			});
-		case actions.GET_USER_ERROR:
+		case actions.HIGH_SCORE:
+			return state = Object.assign({}, state, {
+				high_score: action.score
+			});
+		case actions.GET_ERROR:
+			return state = Object.assign({}, state, {
+				error: true,
+				error_type: action.error
+			});
+		default:
+			return state;
+	}
+}
+
+const questionInfo = (state = {}, action) => {
+	switch (action.type) {
+		case actions.GET_QUESTION_SUCCESS:
+			return state = Object.assign({}, state, {
+				selected_question: action.question[0].selected
+			});
+		case actions.GET_QUESTION_ERROR:
 			return state = Object.assign({}, state, {
 				error: true,
 				error_type: action.error
@@ -19,5 +38,6 @@ const userInfo = (state = {}, action) => {
 }
 
 export default combineReducers({
-	userInfo
+	userInfo,
+	questionInfo
 });

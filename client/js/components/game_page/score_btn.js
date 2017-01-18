@@ -1,9 +1,8 @@
 import React from 'react';
 
-function ScoreBtn () {
-	let currentScore = '5';
+function ScoreBtn (props) {
 	return (
-		<div className="score-btn">{currentScore}</div>
+		<div className="score-btn">{props.count}</div>
 	)
 }
 

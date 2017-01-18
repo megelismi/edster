@@ -1,3 +1,4 @@
+
 let questions = [
     {
         "french": "le pain",
@@ -105,4 +106,4 @@ const spaceQuestions = questionObj => {
   
 }
 
-spaceQuestions({ french: 'le pain', english: 'bread', id: 1, correct: true}); 
+
