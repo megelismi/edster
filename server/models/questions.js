@@ -26,5 +26,92 @@ module.exports = Question;
 
 // // after 25 questions
 // >> send answers and update userHistory
-// // send user progress & update user history
-// // query user to keep playing, if yes, repeat process
+// send user progress & update user history
+// query user to keep playing, if yes, repeat process
+
+let questions = [
+    {
+        "french": "le pain",
+        "english": "bread",
+        "id": 1
+    },
+    {
+        "french": "le poisson",
+        "english": "fish",
+        "id": 2
+    },
+    {
+        "french": "le pamplemousse",
+        "english": "grapefruit",
+        "id": 3
+    },
+    {
+        "french": "le velo",
+        "english": "bicycle",
+        "id": 4
+    }, 
+     {
+        "french": "bonjour",
+        "english": "hello",
+        "id": 5
+    }
+    
+];
+
+let userHistory = [
+    {
+        id: 1,
+        rating: 0
+    },
+    {
+        id: 2,
+        rating: 2
+    },
+    {
+        id: 3,
+        rating: 1
+    },
+    {
+        id: 4,
+        rating: 1
+    }, 
+     {
+        id: 5,
+        rating: 1
+    }
+  
+];
+
+let userQuestions = questions; 
+
+// userQuestions.forEach(function(question) {
+//   question.correct = true; 
+// })
+
+// const assignCorrectness = (inputQuestion, bool) => {
+//   userQuestions.forEach(function(question) {
+//     if (inputQuestion.id == question.id) {
+//       question.correct = bool; 
+//     }
+//   });
+// };
+
+// assignCorrectness({ french: 'le pain', english: 'bread', id: 1 }, true); 
+
+// const spaceQuestions = array => {
+//   let lastQuestionAnswered = array[0];
+  
+//   if (!lastQuestionAnswered.correct) {
+//     var question = userQuestions.splice(0, 1)
+//     userQuestions.splice(3, 0, question); 
+//   }
+//   else {
+//     var shifted = userQuestions.shift(); 
+//     userQuestions.push(lastQuestionAnswered); 
+//   }
+  
+//   return userQuestions; 
+  
+// }
+
+// spaceQuestions(userQuestions); 

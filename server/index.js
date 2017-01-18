@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
 import User from './models/users';
+import Question from './models/questions';
 
 mongoose.Promise = global.Promise;
 
@@ -44,6 +45,13 @@ app.get('/users/:username', jsonParser, (req, res) => {
 app.post('/users', jsonParser, (req, res) => {
     console.log(req.body)
     User.create(req.body)
+    .then(data => res.status(200).json(data))
+    .catch(err => console.log(err))
+})
+
+app.post('/questions', jsonParser, (req, res) => {
+    console.log(req.body)
+    Question.create(req.body)
     .then(data => res.status(200).json(data))
     .catch(err => console.log(err))
 })
