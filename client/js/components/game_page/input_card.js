@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../actions/actions';
 
 class InputCard extends React.Component {
 	constructor () {
@@ -6,20 +8,27 @@ class InputCard extends React.Component {
 		this.sendData = this.sendData.bind(this);
 	}
 
-	sendData () {
-		const { english } = this.props.question;
-		let bool = (this.answer === english) ? true : false ;
-		this.props.changeCount(bool);
+	sendData(e) {
+		e.preventDefault();
+		const { selected, changeCount, sendResult } = this.props;
+		let correct = this.answer.value === selected.english ? true : false ;
+		let newObj = selected;
+		newObj = Object.assign({}, newObj, { correct: correct });
+
+		changeCount(correct);
+		sendResult(newObj);
 	}
 
 	render () {
 		return (
-			<div>
+			<form onSubmit={this.sendData}>
 				<input ref={answer => this.answer = answer}/>
-				<button onClick={() => this.sendData()}>Submit answer</button>
-			</div>
+				<button type="submit">Submit answer</button>
+			</form>
 		)
 	}
 }
 
-export default InputCard;
+const mapStateToProps = (state) => ({ selected: state.questionInfo.selected_question });
+const mapDispatchToProps = (dispatch) => ({ sendResult: (result) => { dispatch(actions.sendResult(result)) } })
+export default connect(mapStateToProps, mapDispatchToProps)(InputCard);

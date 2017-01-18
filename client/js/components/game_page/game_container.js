@@ -20,14 +20,13 @@ class GameContainer extends React.Component {
 
 	componentDidMount () {
 		this.props.getUser();
+		this.props.getQuestion();
 	}
 
 	changeCount (status) {
-		if (status === true) {
-			this.setState({ correct: this.state.correct++ })
-		} else {
-			this.setState({ correct: this.state.incorrect++ })
-		}
+		status ?
+			this.setState({ correct: this.state.correct++ }) :
+			this.setState({ incorrect: this.state.incorrect++ }) ;
 	}
 
 	render () {
@@ -60,7 +59,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		getUser: () => { dispatch(actions.getUser()) }
+		getUser: () => { dispatch(actions.getUser()) },
+		getQuestion: () => { dispatch(actions.getQuestion()) }
 	}
 }
 

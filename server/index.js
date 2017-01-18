@@ -36,41 +36,30 @@ app.get('/users', jsonParser, (req, res) => {
             res.send(err);
         }
         res.status(200).json([
-					{ _id: '587e7f6c6c90cd0f37ad6080',
-    				name: 'Bob',
-    				__v: 0,
-    				answerHistory: [
-							{
-								french: 'le pain',
-								english: 'bread',
-								id: 1,
-								rating: 1
-							},
-							{
-								french: 'le poisson',
-								english: 'fish',
-								id: 2,
-								rating: 0
-							},
-							{
-								french: 'le pamplemousse',
-								english: 'grapefruit',
-								id: 3,
-								rating: 2
-							},
-							{
-								french: 'le velo',
-								english: 'bicycle',
-								id: 4,
-								rating: 1
-							},
-							{
-								french: 'l\'immeuble',
-								english: 'building',
-								id: 5,
-								rating: 0
-							}
-						] } ]);
+					{
+						_id: '587e7f6c6c90cd0f37ad6080',
+    				name: 'Bob'
+					}
+				]
+			);
+    });
+});
+
+app.get('/users/question', jsonParser, (req, res) => {
+    User.find({}, (err, data) => {
+        if (err){
+            console.log("error was made:", err);
+            res.send(err);
+        }
+        res.status(200).json([
+					{ selected: {
+							french: 'le poisson',
+							english: 'fish',
+							id: 2
+						}
+					}
+				]
+			);
     });
 });
 

@@ -8,8 +8,7 @@ let merged = [
 	{
 		french: 'le poisson',
 		english: 'fish',
-		id: 2,
-		rating: 0
+		id: 2
 	},
 	{
 		french: 'le pamplemousse',
