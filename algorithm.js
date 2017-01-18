@@ -1,10 +1,93 @@
+let merged = [
+	{
+		french: 'le pain',
+		english: 'bread',
+		id: 1,
+		rating: 1
+	},
+	{
+		french: 'le poisson',
+		english: 'fish',
+		id: 2,
+		rating: 0
+	},
+	{
+		french: 'le pamplemousse',
+		english: 'grapefruit',
+		id: 3,
+		rating: 2
+	},
+	{
+		french: 'le velo',
+		english: 'bicycle',
+		id: 4,
+		rating: 1
+	},
+	{
+		french: 'l\'immeuble',
+		english: 'building',
+		id: 5,
+		rating: 0
+	}
+]
+
+const rejectionSample = (questions) => {
+	let selected, idx;
+	let num = Math.floor(Math.random() * 6) + 1;
+
+	if (num === 1) {
+		val = 2
+	} else if (num > 1 && num < 4) {
+		val = 1
+	} else {
+		val = 0
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // var languageData = {"hola": "hello", "adios": "goodbye", "si": "yes", "mesa": "table"};
-var languageData = [
-	{"hola": "hello", frequency: 1},
-	{"adios": "goodbye", frequency: 2},
-	{"si": "yes", frequency: 1},
-	{"mesa": "table", frequency: 0}
-];
+// var languageData = [
+// 	{"hola": "hello", frequency: 1},
+// 	{"adios": "goodbye", frequency: 2},
+// 	{"si": "yes", frequency: 1},
+// 	{"mesa": "table", frequency: 0}
+// ];
 
 //function that presents each pair in the object an equal number of times
 
