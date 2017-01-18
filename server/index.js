@@ -19,7 +19,6 @@ const jsonParser = bodyParser.json();
 
 app.use(express.static(process.env.CLIENT_PATH));
 
-
 app.get('/users/:username/questions', jsonParser, (req, res) => {
     const {username} = req.params;
     User.findOne({'name': username}, (err, data) => {
@@ -30,7 +29,6 @@ app.get('/users/:username/questions', jsonParser, (req, res) => {
         res.status(200).json(data.questionBank[0]);
     })
 })
-
 
 app.get('/users/:username', jsonParser, (req, res) => {
     const {username} = req.params;
@@ -43,7 +41,6 @@ app.get('/users/:username', jsonParser, (req, res) => {
         res.status(200).json(data.name);
     })
 })
-
 
 app.post('/users', jsonParser, (req, res) => {
     console.log(req.body)
@@ -58,15 +55,6 @@ app.post('/questions', jsonParser, (req, res) => {
     .then(data => res.status(200).json(data))
     .catch(err => console.log(err))
 })
-
-
-   const sampleQ = {
-        "french": "le pain",
-        "english": "bread",
-        "id": 1,
-        "correct": true
-    }
-
 
 const spaceQuestions = (array, lastQuestionAnswered) => {
   if (!lastQuestionAnswered.correct) {
@@ -83,22 +71,21 @@ const spaceQuestions = (array, lastQuestionAnswered) => {
 }
 
 app.put('/users/:username/questions', jsonParser, (req, res) => {
-   const {username} = req.params;
-   const {body} = req;
-   let updatedQuestionBank;
+  const {username} = req.params;
+  const {body} = req;
+  let updatedQuestionBank;
 
-    User.findOne({'name': username}, (err, data) => {
-        if (err){
-            console.log("error was made:", err);
-            res.send(err);
-        }
-        updatedQuestionBank = spaceQuestions(data.questionBank, sampleQ);
-        data.questionBank = updatedQuestionBank;
-        data.save();
-        res.status(200).json({});
-    })
+   User.findOne({'name': username}, (err, data) => {
+       if (err){
+           console.log("error was made:", err);
+           res.send(err);
+       }
+       updatedQuestionBank = spaceQuestions(data.questionBank, body);
+       data.questionBank = updatedQuestionBank;
+       data.save();
+       res.status(200).json({});
+   })
 });
-
 
 app.delete('/users/:id', (req, res) => {
   User.findByIdAndRemove(req.params.id)
