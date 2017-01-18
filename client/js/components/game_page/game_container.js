@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
 import LogoutBtn from './logout_btn';
 import ProgressBtn from './progress_btn';
-import ScoreBtn from './score_btn';
+import CorrectScoreBtn from './correct_score_btn';
+import IncorrectScoreBtn from './incorrect_score_btn'; 
 import Feedback from './feedback';
 import OutputCard from './output_card';
 import InputCard from './input_card';
+import Dropdown from './dropdown';
 
 class GameContainer extends React.Component {
 	constructor () {
@@ -32,23 +34,30 @@ class GameContainer extends React.Component {
 		if (correct + 1 > high_score) { highScore(correct + 1) };
 	}
 
+	route () {
+		alert('something happened!')
+	}
+
+
 	render () {
 		console.log('state', this.state);
 		if (!this.props.selected) {
 			return <div></div>
 		} else {
 			return (
-				<div>
+				<div className="game-container">
 					<LogoutBtn />
 					<ProgressBtn />
 					<div className={'feedback-container'}>
-						<ScoreBtn count={this.state.correct} />
-						<ScoreBtn count={this.state.incorrect} />
 						<Feedback correct={this.state.correct} incorrect={this.state.incorrect} user={this.props.user} />
 					</div>
 					<div className={'cards-container'}>
 						<OutputCard question={this.props.selected} />
 						<InputCard question={this.props.selected} changeCount={this.changeCount} />
+					</div>
+					<div className="scores">
+						<CorrectScoreBtn count={this.state.correct} />
+						<IncorrectScoreBtn count={this.state.incorrect} />
 					</div>
 				</div>
 			)

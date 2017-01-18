@@ -1,0 +1,83 @@
+* {
+	box-sizing: border-box; 
+	font-family: 'Roboto', sans-serif;
+}
+
+html {
+  font-size: 16px;
+  @media (min-width: 800px) {
+    font-size: 18px;
+  }
+  @media (min-width: 1200px) {
+    font-size: 20px;
+  }
+}
+
+
+.game-container {
+	display: flex; 
+	flex-direction: column; 
+	width: 100%; 
+
+}
+
+.logout-btn, .progress-btn {
+	width: 75px; 
+}
+
+.score-btn, .feedback-text {
+	text-align: center;  
+}
+
+.score-btn {
+	margin-left: 15px;
+   margin-right: 15px;
+}
+
+.scores {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+
+.feedback-text {
+	font-size: 1.3em; 
+}
+
+.input-card-form, .output-card {
+	border: 1px solid black; 
+	border-radius: 2px; 
+	width: 35%;
+	height: 150px;   
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+	margin: 15px; 
+	flex-wrap: wrap;
+	font-size: 1.8em;  
+}
+
+.input-card-form input {
+	 width: 80%;
+    height: 45%;
+    margin-top: 15px; 
+    font-size: 1em;
+    text-align:center; 
+}
+
+.input-card-form button {
+	 width: 22%;
+    height: 15%;
+    border: 1px solid black;
+    border-radius: 2px;
+    background-color: white;
+    margin-bottom: 10px
+}
+
+.cards-container {
+	display: flex; 
+	flex-direction: column;
+   align-items: center;
+
+}
