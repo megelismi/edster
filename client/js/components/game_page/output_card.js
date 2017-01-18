@@ -1,10 +1,9 @@
 import React from 'react';
 
-function OutputCard () {
-	let inputCardText = 'ananas';
+function OutputCard (props) {
 	return (
 		<div>
-			<p className="input-card-text">{inputCardText}</p>
+			<p className="input-card-text">{props.question.french}</p>
 		</div>
 	)
 }

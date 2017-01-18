@@ -11,8 +11,9 @@ export const getUser = () => dispatch => {
 		}).then(res => {
 			console.log(res);
 			dispatch(getUserSuccess(res));
+			dispatch(getQuestionsSuccess(res));
 		}).catch(err => {
-			dispatch(getUserError(err));
+			dispatch(getError(err));
 		});
 }
 
@@ -22,8 +23,14 @@ export const getUserSuccess = userInfo => ({
 	userInfo
 });
 
-export const GET_USER_ERROR = 'GET_USER_ERROR';
-export const getUserError = error => ({
-	type: GET_USER_ERROR,
+export const GET_QUESTIONS_SUCCESS = 'GET_QUESTIONS_SUCCESS';
+export const getQuestionsSuccess = userInfo => ({
+	type: GET_QUESTIONS_SUCCESS,
+	userInfo
+});
+
+export const GET_ERROR = 'GET_ERROR';
+export const getError = error => ({
+	type: GET_ERROR,
 	error
 });

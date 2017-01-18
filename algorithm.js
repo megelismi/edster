@@ -31,17 +31,23 @@ let merged = [
 	}
 ]
 
-const rejectionSample = (questions) => {
-	let selected, idx;
-	let num = Math.floor(Math.random() * 6) + 1;
 
-	if (num === 1) {
-		val = 2
-	} else if (num > 1 && num < 4) {
-		val = 1
-	} else {
-		val = 0
-	}
+const rejectionSample = (questions) => {
+    let selected, idx;
+    let num = Math.floor(Math.random() * 6) + 1;
+    if (num === 1) {
+        val = 2
+    } else if (num > 1 && num < 4) {
+        val = 1
+    } else {
+        val = 0
+    }
+    selected = questions.filter((q) => {
+        return q.rating === val;
+    });
+    idx = Math.floor(Math.random() * selected.length);
+    return selected[idx];
+}
 
 
 

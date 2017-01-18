@@ -31,7 +31,6 @@ app.use(express.static(process.env.CLIENT_PATH));
 
 app.get('/users', jsonParser, (req, res) => {
     User.find({}, (err, data) => {
-        console.log('data', data);
         if (err){
             console.log("error was made:", err);
             res.send(err);
