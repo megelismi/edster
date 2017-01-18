@@ -19,7 +19,6 @@ class GameContainer extends React.Component {
 	}
 
 	componentDidMount () {
-		// this.props.highScore(0);
 		this.props.getUser();
 		this.props.getQuestion();
 	}
@@ -28,9 +27,6 @@ class GameContainer extends React.Component {
 		status ?
 			this.setState({ correct: this.state.correct + 1 }) :
 			this.setState({ incorrect: this.state.incorrect + 1 }) ;
-		// if (this.state.correct > this.props.high_score) {
-		// 	this.props.highScore(this.state.correct)
-		// }
 	}
 
 	render () {

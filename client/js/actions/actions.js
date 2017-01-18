@@ -18,9 +18,9 @@ export const getUser = () => dispatch => {
 }
 
 export const GET_USER_SUCCESS = 'GET_USER_SUCCESS';
-export const getUserSuccess = userInfo => ({
+export const getUserSuccess = name => ({
 	type: GET_USER_SUCCESS,
-	userInfo
+	name
 });
 
 export const GET_ERROR = 'GET_ERROR';
