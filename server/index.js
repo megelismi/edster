@@ -18,6 +18,17 @@ const jsonParser = bodyParser.json();
 app.use(express.static(process.env.CLIENT_PATH));
 
 
+// app.get('/users', jsonParser, (req, res) => {
+//     User.find({}, (err, data) => {
+//         console.log('data', data);
+//         if (err){
+//             console.log("error was made:", err);
+//             res.send(err);
+//         }
+//         res.status(200).json(data);
+//     })
+// })
+
 app.get('/users', jsonParser, (req, res) => {
     User.find({}, (err, data) => {
         console.log('data', data);
@@ -25,9 +36,44 @@ app.get('/users', jsonParser, (req, res) => {
             console.log("error was made:", err);
             res.send(err);
         }
-        res.status(200).json(data);
-    })
-})
+        res.status(200).json([
+					{ _id: '587e7f6c6c90cd0f37ad6080',
+    				name: 'Bob',
+    				__v: 0,
+    				answerHistory: [
+							{
+								french: 'le pain',
+								english: 'bread',
+								id: 1,
+								rating: 1
+							},
+							{
+								french: 'le poisson',
+								english: 'fish',
+								id: 2,
+								rating: 0
+							},
+							{
+								french: 'le pamplemousse',
+								english: 'grapefruit',
+								id: 3,
+								rating: 2
+							},
+							{
+								french: 'le velo',
+								english: 'bicycle',
+								id: 4,
+								rating: 1
+							},
+							{
+								french: 'l\'immeuble',
+								english: 'building',
+								id: 5,
+								rating: 0
+							}
+						] } ]);
+    });
+});
 
 app.get('/users/:username', jsonParser, (req, res) => {
     const {username} = req.params;
@@ -35,7 +81,7 @@ app.get('/users/:username', jsonParser, (req, res) => {
         console.log('data', data);
         if (err){
             console.log("error was made:", err);
-            res.send(err); 
+            res.send(err);
         }
         res.status(200).json(data);
     })

@@ -9,34 +9,36 @@ import OutputCard from './output_card';
 import InputCard from './input_card';
 
 class GameContainer extends React.Component {
-	constructor (props) {
-		super (props);
-	}
-
 	componentDidMount () {
 		this.props.getUser();
 	}
 
 	render () {
-		return (
-			<div>
-				<LogoutBtn />
-				<ProgressBtn />
-				<div className={'feedback-container'}>
-					<ScoreBtn />
-					<ScoreBtn />
-					<Feedback />
+		if (!this.props.user) {
+			return <div></div>
+		} else {
+			return (
+				<div>
+					<LogoutBtn />
+					<ProgressBtn />
+					<div className={'feedback-container'}>
+						<ScoreBtn />
+						<ScoreBtn />
+						<Feedback user={this.props.user}/>
+					</div>
+					<div className={'cards-container'}>
+						<OutputCard />
+						<InputCard />
+					</div>
 				</div>
-				<div className={'cards-container'}>
-					<OutputCard />
-					<InputCard />
-				</div>
-			</div>
-		)
+			)
+		}
 	}
 }
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+	user: state.userInfo.user
+});
 
 const mapDispatchToProps = (dispatch) => {
 	return {

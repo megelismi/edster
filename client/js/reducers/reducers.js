@@ -5,8 +5,9 @@ const userInfo = (state = {}, action) => {
 	switch (action.type) {
 		case actions.GET_USER_SUCCESS:
 			return state = Object.assign({}, state, {
-				name: action.userInfo[0].name,
-				id: action.userInfo[0]._id
+				id: action.userInfo[0]._id,
+				user: action.userInfo[0].name,
+				history: action.userInfo[0].answerHistory
 			});
 		case actions.GET_USER_ERROR:
 			return state = Object.assign({}, state, {
