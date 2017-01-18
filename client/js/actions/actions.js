@@ -32,7 +32,7 @@ export const getError = error => ({
 // get question
 
 export const getQuestion = () => dispatch => {
-	return fetch(users_url + '/question')
+	return fetch(users_url + '/bob/questions')
 		.then(res => {
 			if (!res.ok) {
 				throw new Error(res.status);

@@ -20,8 +20,8 @@ const jsonParser = bodyParser.json();
 app.use(express.static(process.env.CLIENT_PATH));
 
 
-app.get('/users/questions', jsonParser, (req, res) => {
-    const {username} = req.params; 
+app.get('/users/:username/questions', jsonParser, (req, res) => {
+    const {username} = req.params;
     User.findOne({'name': username}, (err, data) => {
         if (err){
             console.log("error was made:", err);
@@ -31,13 +31,12 @@ app.get('/users/questions', jsonParser, (req, res) => {
     })
 })
 
-
 app.get('/users', jsonParser, (req, res) => {
     const {username} = req.params;
     User.findOne({'name': username}, (err, data) => {
         if (err){
             console.log("error was made:", err);
-            res.send(err); 
+            res.send(err);
         }
         res.status(200).json(data.name);
     })
@@ -62,7 +61,7 @@ app.post('/questions', jsonParser, (req, res) => {
    const sampleQ = {
         "french": "le pain",
         "english": "bread",
-        "id": 1, 
+        "id": 1,
         "correct": true
     }
 
@@ -70,21 +69,21 @@ app.post('/questions', jsonParser, (req, res) => {
 const spaceQuestions = (array, lastQuestionAnswered) => {
   if (!lastQuestionAnswered.correct) {
     var question = array.splice(0, 1)
-    array.splice(3, 0, question); 
+    array.splice(3, 0, question);
   }
   else {
-    var shifted = array.shift(); 
-    array.push(lastQuestionAnswered); 
+    var shifted = array.shift();
+    array.push(lastQuestionAnswered);
   }
-  
-  return array; 
- 
+
+  return array;
+
 }
 
 app.put('/users/questions', jsonParser, (req, res) => {
    const {username} = req.params;
    const {body} = req;
-   let updatedQuestionBank;  
+   let updatedQuestionBank;
 
     User.findOne({'name': username}, (err, data) => {
         if (err){
@@ -92,9 +91,9 @@ app.put('/users/questions', jsonParser, (req, res) => {
             res.send(err);
         }
         updatedQuestionBank = spaceQuestions(data.questionBank, sampleQ);
-        data.questionBank = updatedQuestionBank; 
-        data.save(); 
-        res.status(200).json({}); 
+        data.questionBank = updatedQuestionBank;
+        data.save();
+        res.status(200).json({});
     })
 });
 
@@ -125,4 +124,3 @@ function runServer() {
 if (require.main === module) {
     runServer();
 }
-
