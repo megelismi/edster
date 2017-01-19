@@ -1,11 +1,16 @@
 const questions_url = "/";
 const users_url = "/users";
+import cookie from 'react-cookie';
 
 // get user
 
 export const getUser = () => dispatch => {
-	return fetch(users_url + '/Megan')
-		.then(res => {
+	return fetch('/users/113732807800415106626',
+	{
+		headers: {
+			'Authorization': `Bearer ${cookie.load('accessToken')}`
+		}
+	}).then(res => {
 			if (!res.ok) {
 				throw new Error(res.status);
 			}
@@ -32,8 +37,12 @@ export const getError = error => ({
 // get question
 
 export const getQuestion = () => dispatch => {
-	return fetch(users_url + '/Megan/questions')
-		.then(res => {
+	return fetch(users_url + '/113732807800415106626/questions',
+	{
+		Headers: {
+			'Authorization': 'Bearer ya29.GlvYA8lTs11-Oydh4DE02pupH4BNSekqr51NoDKxLzldohJvFCCzU9kl2bT2r-xR76rosts4xjRBMCiEeeE2jHokzDBuDbHeBeNOhu77OsAUfRVBL3OtX8b1CN8u'
+		}
+	}).then(res => {
 			if (!res.ok) {
 				throw new Error(res.status);
 			}

@@ -19,7 +19,7 @@ router.get('/public', (req, res) => res.json({ message: 'I am public' }));
 passport.use(new BearerStrategy((accessToken, done) =>
 User.findOne({ accessToken })
 	.then((user) => {
-		done(null, user, {scope: 'read'});
+		done(null, user, { scope: 'read' });
 	}).catch((err) => {
 		done(err, null);
 		console.log('Catch error', err);

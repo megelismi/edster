@@ -39,7 +39,6 @@ passport.use(new GoogleStrategy({
 			}).catch((err) => {
 				console.log(err);
 			});
-		return callback(null, profile);
   }
 ));
 
@@ -50,6 +49,7 @@ app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/', session: false }),
   function(req, res) {
     // Successful authentication, redirect home.
+		console.log('req user', req);
 		res.cookie('accessToken', req.user.accessToken, { expires: 0, httpOnly: false })
 		res.redirect('/#/quiz');
   });
@@ -57,9 +57,9 @@ app.get('/auth/google/callback',
 
 // API ENDPOINTS
 
-app.get('/users/:username/questions', jsonParser, (req, res) => {
-    const {username} = req.params;
-    User.findOne({'name': username}, (err, data) => {
+app.get('/users/:id/questions', jsonParser, (req, res) => {
+    const { id } = req.params;
+    User.findOne({'googleID': id}, (err, data) => {
         if (err){
             console.log("error was made:", err);
             res.send(err);
@@ -67,11 +67,14 @@ app.get('/users/:username/questions', jsonParser, (req, res) => {
         res.status(200).json(data.questionBank[0]);
     })
 })
+//
+// router.get('/questions', passport.authenticate('bearer', { session: false }),
+// (req, res) => res.json(req.user.questions));
 
-
-app.get('/users/:username', jsonParser, (req, res) => {
-    const {username} = req.params;
-    User.findOne({'name': username}, (err, data) => {
+app.get('/users/:id', passport.authenticate('bearer', { session: false }),
+		(req, res) => {
+    const { id } = req.params;
+    User.findOne({'googleID': id}, (err, data) => {
         if (err){
             console.log("error was made:", err);
             res.send(err);
