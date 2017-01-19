@@ -5,7 +5,7 @@ import cookie from 'react-cookie';
 // get user
 
 export const getUser = () => dispatch => {
-	return fetch('/users/113732807800415106626',
+	return fetch('/users/114344002342888496768',
 	{
 		headers: {
 			'Authorization': `Bearer ${cookie.load('accessToken')}`
@@ -37,7 +37,7 @@ export const getError = error => ({
 // get question
 
 export const getQuestion = () => dispatch => {
-	return fetch(users_url + '/113732807800415106626/questions',
+	return fetch(users_url + '/114344002342888496768/questions',
 	{
 		Headers: {
 			'Authorization': 'Bearer ya29.GlvYA8lTs11-Oydh4DE02pupH4BNSekqr51NoDKxLzldohJvFCCzU9kl2bT2r-xR76rosts4xjRBMCiEeeE2jHokzDBuDbHeBeNOhu77OsAUfRVBL3OtX8b1CN8u'
