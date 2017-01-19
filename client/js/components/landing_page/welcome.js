@@ -23,9 +23,7 @@ class Welcome extends React.Component {
 
 	render () {
 		return (
-			<div id="homepage">Welcome!
-				<a href="/auth/google">Log in!</a>
-			</div>
+			<div id="homepage">Welcome!</div>
 		)
 	}
 }

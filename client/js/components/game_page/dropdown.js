@@ -1,6 +1,6 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
-import {Link} from 'react-router'; 
+import {Link} from 'react-router';
 
 function Dropdown () {
   return (
@@ -9,12 +9,10 @@ function Dropdown () {
       <div className="dropdown-content">
         <Link to={'/about'}>About Us</Link>
         <Link to ={'/progress'}>My Progress</Link>
-        <Link to ={'/welcome'}>Logout</Link>
+				<a href="/auth/logout">Logout</a>
       </div>
     </div>
   )
 }
 
 export default Dropdown;
-
-

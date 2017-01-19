@@ -4,7 +4,7 @@ import { hashHistory } from 'react-router';
 function Login () {
 	return (
 		<div>
-			<button onClick={() => hashHistory.push('/quiz')}>Log In</button>
+			<a href="/auth/google">Log in!</a>
 		</div>
 	)
 }
