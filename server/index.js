@@ -49,8 +49,9 @@ app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/', session: false }),
   function(req, res) {
     // Successful authentication, redirect home.
-		console.log('req user', req);
+		console.log('req user', req.user);
 		res.cookie('accessToken', req.user.accessToken, { expires: 0, httpOnly: false })
+    res.cookie('id', req.user.googleID, { expires: 0, httpOnly: false })
 		res.redirect('/#/quiz');
   });
 

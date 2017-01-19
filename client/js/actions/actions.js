@@ -5,7 +5,7 @@ import cookie from 'react-cookie';
 // get user
 
 export const getUser = () => dispatch => {
-	return fetch('/users/114344002342888496768',
+	return fetch(users_url + `/${cookie.load('id')}`,
 	{
 		headers: {
 			'Authorization': `Bearer ${cookie.load('accessToken')}`
@@ -37,7 +37,7 @@ export const getError = error => ({
 // get question
 
 export const getQuestion = () => dispatch => {
-	return fetch(users_url + '/114344002342888496768/questions',
+	return fetch(users_url + `/${cookie.load('id')}/questions`,
 	{
 		headers: {
 			'Authorization': `Bearer ${cookie.load('accessToken')}`
@@ -73,7 +73,7 @@ export const getQuestionError = error => ({
 
 export const sendResult = (result) => dispatch => {
 	return fetch(
-		users_url + '/114344002342888496768/questions',
+		users_url + `/${cookie.load('id')}/questions`,
 		{
 			method: "PUT",
 			body: JSON.stringify({ result }),
