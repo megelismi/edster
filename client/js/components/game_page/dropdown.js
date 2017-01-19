@@ -7,8 +7,9 @@ function Dropdown () {
     <div className="dropdown">
       <h5>Menu</h5>
       <div className="dropdown-content">
+        <Link to={'/about'}>About Us</Link>
+        <Link to ={'/progress'}>My Progress</Link>
         <Link to ={'/welcome'}>Logout</Link>
-        <Link to ={'/progress'}>Progress Report</Link>
       </div>
     </div>
   )

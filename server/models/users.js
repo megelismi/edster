@@ -1,7 +1,21 @@
 var mongoose = require('mongoose');
 
 var userSchema = mongoose.Schema({
-	name: String, 
+	name: {
+		type: Object,
+		required: true
+	}, 
+	googleId: {
+		type: String, 
+		required: true
+	}, 
+	accessToken: {
+		type: String, 
+		required: true
+	}, 
+	correctInARow: Array,
+	masteredWords: Array, 
+	unMasteredWords: Array, 
 	questionBank: Array
 })
 
