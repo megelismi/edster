@@ -45,9 +45,8 @@ class GameContainer extends React.Component {
 		} else {
 			return (
 				<div className="game-container">
-					<div class="header">
+					<div className="header">
 						<Dropdown />
-						<img src="/dster-logo.png"/>
 					</div>
 					<div className={'feedback-container'}>
 						<Feedback current={this.state.current} correctCount={this.state.correct} user={this.props.user} />
@@ -65,6 +64,7 @@ class GameContainer extends React.Component {
 		}
 	}
 }
+
 
 const mapStateToProps = (state) => ({
 	user: state.userInfo.user,
