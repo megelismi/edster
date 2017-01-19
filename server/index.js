@@ -56,10 +56,10 @@ app.get('/auth/google/callback',
   });
 
 app.get('/auth/logout', (req, res) => {
-  req.logout(); 
-  res.clearCookie('accessToken'); 
-  res.clearCookie('id'); 
-  res.redirect('/#/welcome'); 
+  req.logout();
+  res.clearCookie('accessToken');
+  res.clearCookie('id');
+  res.redirect('/#/welcome');
 })
 
 // API ENDPOINTS
@@ -72,6 +72,17 @@ app.get('/users/:id/questions', passport.authenticate('bearer', { session: false
             res.send(err);
         }
         res.status(200).json(data.questionBank[0]);
+    })
+})
+
+app.get('/users/:id/questions-array', passport.authenticate('bearer', { session: false }), jsonParser, (req, res) => {
+    const { id } = req.params;
+    User.findOne({'googleID': id}, (err, data) => {
+        if (err){
+            console.log("error was made:", err);
+            res.send(err);
+        }
+        res.status(200).json(data.questionBank);
     })
 })
 

@@ -55,7 +55,32 @@ export const getQuestion = () => dispatch => {
 		});
 }
 
+export const getQuestionsArray = () => dispatch => {
+	return fetch(users_url + `/${cookie.load('id')}/questions-array`,
+	{
+		headers: {
+			'Authorization': `Bearer ${cookie.load('accessToken')}`
+		}
+	}).then(res => {
+			if (!res.ok) {
+				throw new Error(res.status);
+			}
+			return res.json();
+		}).then(res => {
+			console.log('get result', res);
+			dispatch(getQuestionsArraySuccess(res))
+		}).catch(err => {
+			dispatch(getQuestionError(err))
+		});
+}
+
 // send updated question info
+
+export const GET_QUESTIONS_ARRAY_SUCCESS = 'GET_QUESTIONS_ARRAY_SUCCESS';
+export const getQuestionsArraySuccess = questions => ({
+	type: GET_QUESTIONS_ARRAY_SUCCESS,
+	questions
+});
 
 export const GET_QUESTION_SUCCESS = 'GET_QUESTION_SUCCESS';
 export const getQuestionSuccess = question => ({

@@ -27,6 +27,10 @@ const questionInfo = (state = {}, action) => {
 			return state = Object.assign({}, state, {
 				selected_question: action.question
 			});
+		case actions.GET_QUESTIONS_ARRAY_SUCCESS:
+			return state = Object.assign({}, state, {
+				questions_array: action.questions
+			});
 		case actions.GET_QUESTION_ERROR:
 			return state = Object.assign({}, state, {
 				get_error: true,
