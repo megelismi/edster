@@ -22,6 +22,7 @@ class GameContainer extends React.Component {
 	componentDidMount () {
 		this.props.getUser();
 		this.props.getQuestion();
+		this.props.getQuestionsArray();
 	}
 
 	changeCount (status) {
@@ -76,6 +77,7 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		getUser: () => { dispatch(actions.getUser()) },
 		getQuestion: () => { dispatch(actions.getQuestion()) },
+		getQuestionsArray: () => { dispatch(actions.getQuestionsArray()) },
 		highScore: (num) => { dispatch(actions.highScore(num)) }
 	}
 }
