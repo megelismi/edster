@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
-import CorrectScoreBtn from './correct_score_btn';
-import IncorrectScoreBtn from './incorrect_score_btn';
+import ScoreBtn from './score_btn';
 import Feedback from './feedback';
 import OutputCard from './output_card';
 import InputCard from './input_card';
@@ -14,7 +13,8 @@ class GameContainer extends React.Component {
 		this.state = {
 			correct: 0,
 			incorrect: 0,
-			current: 'start'
+			current: 'start',
+			currentHigh: 0
 		}
 		this.changeCount = this.changeCount.bind(this);
 	}
@@ -25,12 +25,12 @@ class GameContainer extends React.Component {
 	}
 
 	changeCount (status) {
-		const { correct, incorrect } = this.state;
+		const { correct, incorrect, currentHigh, current } = this.state;
 		const { high_score, highScore } = this.props;
 		status ?
-			this.setState({ correct: correct + 1, current: true }) :
-			this.setState({ incorrect: incorrect + 1, current: false }) ;
-		if (correct + 1 > high_score) { highScore(correct + 1) };
+			this.setState({ correct: correct + 1, current: true, currentHigh: currentHigh + 1 }) :
+			this.setState({ incorrect: incorrect + 1, current: false, currentHigh: 0 }) ;
+		if (currentHigh + 1 > high_score) { highScore(currentHigh + 1) };
 	}
 
 	route () {
@@ -49,15 +49,15 @@ class GameContainer extends React.Component {
 						<Dropdown />
 					</div>
 					<div className={'feedback-container'}>
-						<Feedback current={this.state.current} correctCount={this.state.correct} user={this.props.user} />
+						<Feedback current={this.state.current} correctCount={this.state.currentHigh} user={this.props.user} />
 					</div>
 					<div className={'cards-container'}>
 						<OutputCard question={this.props.selected} />
 						<InputCard question={this.props.selected} changeCount={this.changeCount} />
 					</div>
 					<div className="scores">
-						<CorrectScoreBtn count={this.state.correct} />
-						<IncorrectScoreBtn count={this.state.incorrect} />
+						<ScoreBtn count={this.state.correct} text="Correct" />
+						<ScoreBtn count={this.state.correct} text="Incorrect" />
 					</div>
 				</div>
 			)
