@@ -4,7 +4,7 @@ import Login from './login';
 
 function LandingContainer () {
 	return (
-		<div>
+		<div className='LandingContainer'>
 			<Welcome />
 			<Login />
 		</div>

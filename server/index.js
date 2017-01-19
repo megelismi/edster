@@ -55,6 +55,12 @@ app.get('/auth/google/callback',
 		res.redirect('/#/quiz');
   });
 
+app.get('/auth/logout', (req, res) => {
+  req.logout(); 
+  res.clearCookie('accessToken'); 
+  res.clearCookie('id'); 
+  res.redirect('/#/welcome'); 
+})
 
 // API ENDPOINTS
 
