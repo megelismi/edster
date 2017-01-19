@@ -22,8 +22,8 @@ class GameContainer extends React.Component {
 	}
 
 	componentDidMount () {
-		this.props.getUser();
-		this.props.getQuestion();
+		// this.props.getUser();
+		// this.props.getQuestion();
 	}
 
 	changeCount (status) {

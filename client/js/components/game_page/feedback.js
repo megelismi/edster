@@ -3,11 +3,16 @@ import { connect } from 'react-redux';
 
 function Feedback (props) {
 	let feedback;
+	const { current, user, correctCount } = props;
 
-	if (props.current === 'start') {
-		feedback = `Welcome back, ${props.user}! Let's get started.`
-	} else if (props.current) {
-		feedback = `${props.correctCount} in a row! Keep up the good work, ${props.user}!`;
+	if (current === 'start') {
+		feedback = `Welcome back, ${user}! Let's get started.`
+	} else if (current) {
+		if (correctCount % 10 === 0) {
+			feedback = `Wow! ${correctCount} in a row — you're on fire!`
+		} else {
+			feedback = `${correctCount} in a row! Keep up the good work, ${user}!`;
+		}
 	} else {
 		feedback = `Keep trying. You got this!`
 	}

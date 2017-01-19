@@ -2,8 +2,11 @@ import 'babel-polyfill';
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+import GoogleStrategy from 'passport-google-oauth20';
+import passport from 'passport';
 import User from './models/users';
 import Question from './models/questions';
+import router from './api';
 
 mongoose.Promise = global.Promise;
 
@@ -16,6 +19,43 @@ const app = express();
 const jsonParser = bodyParser.json();
 
 app.use(express.static(process.env.CLIENT_PATH));
+
+// AUTH
+
+passport.use(new GoogleStrategy({
+    clientID: '184969871177-ebemsponpqfaf7llf32pg1j74799rv90.apps.googleusercontent.com',
+    clientSecret: 'LWwSpw-fMa-v7sVyzn9s3fui',
+    callbackURL: "http://localhost:8080/auth/google/callback"
+  },
+	function(accessToken, refreshToken, profile, callback) {
+		User.findOneAndUpdate({ googleID: profile.id },
+			{ $set: {
+				googleID: profile.id,
+				accessToken: accessToken,
+				name: profile.displayName
+			} },
+			{ upsert: true, 'new': true }).then((user) => {
+				callback(null, user)
+			}).catch((err) => {
+				console.log(err);
+			});
+		return callback(null, profile);
+  }
+));
+
+app.get('/auth/google',
+  passport.authenticate('google', { scope: ['profile'] }));
+
+app.get('/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/', session: false }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+		res.cookie('accessToken', req.user.accessToken, { expires: 0, httpOnly: false })
+		res.redirect('/#/quiz');
+  });
+
+
+// API ENDPOINTS
 
 app.get('/users/:username/questions', jsonParser, (req, res) => {
     const {username} = req.params;
@@ -73,7 +113,7 @@ const spaceQuestions = (array, lastQuestionAnswered) => {
 app.put('/users/:username/questions', jsonParser, (req, res) => {
    const {username} = req.params;
 
-   const {body} = req; 
+   const {body} = req;
 
 
    let updatedQuestionBank;

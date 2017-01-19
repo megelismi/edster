@@ -1,15 +1,31 @@
 var mongoose = require('mongoose');
 
+// add default values
+
 var userSchema = mongoose.Schema({
-	name: String, 
-	questionBank: Array
+    name: {
+        type: Object,
+        required: true
+    },
+    googleID: {
+        type: String,
+        required: true
+    },
+    accessToken: {
+        type: String,
+        required: true
+    },
+    correctInARow: Array,
+    masteredWords: Array,
+    unMasteredWords: Array,
+    questionBank: Array
 })
 
 var User = mongoose.model('User', userSchema);
 
 module.exports = User;
 
-// {"name": "Megan", 
+// {"name": "Megan",
 // "questionBank":  [
 //     {
 //         "french": "le pain",
