@@ -1,19 +1,47 @@
 * {
 	box-sizing: border-box; 
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto Condensed', sans-serif;
 }
 
-html {
-  font-size: 16px;
-  @media (min-width: 800px) {
-    font-size: 18px;
-  }
-  @media (min-width: 1200px) {
-    font-size: 20px;
-  }
+body {
+	margin: 0;
+	color: #828A95; 
 }
 
+.dropdown {
+    position: relative;
+ 	 margin-right: 25px; 
+    width: 10%;
+    text-align: center
+}
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    font-size:0.8em;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown h5 {
+	margin-top: 10px;
+   margin-bottom: 10px;
+
+}
 .game-container {
 	display: flex; 
 	flex-direction: column; 
@@ -21,18 +49,30 @@ html {
 
 }
 
-.logout-btn, .progress-btn {
-	width: 75px; 
+.dropdown h5:after {
+	content: "\f107";
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	margin-left: 15px;
 }
 
 .score-btn, .feedback-text {
 	text-align: center;  
 }
 
+.feedback-text {
+	color: #406E8E;
+	font-family: 'Shadows Into Light Two', cursive;
+	// font-family: 'Waiting for the Sunrise', cursive;
+}
+
 .score-btn {
 	margin-left: 15px;
    margin-right: 15px;
 }
+
 
 .scores {
     display: flex;
@@ -42,11 +82,12 @@ html {
 
 
 .feedback-text {
-	font-size: 1.3em; 
+	font-size: 2.0em; 
 }
 
 .input-card-form, .output-card {
-	border: 1px solid black; 
+	background-color: white;
+	border: 1px solid #828A95;
 	border-radius: 2px; 
 	width: 35%;
 	height: 150px;   
@@ -63,21 +104,46 @@ html {
     height: 45%;
     margin-top: 15px; 
     font-size: 1em;
-    text-align:center; 
+    text-align:center;
+    background-color: white 
 }
 
 .input-card-form button {
 	 width: 22%;
     height: 15%;
-    border: 1px solid black;
     border-radius: 2px;
-    background-color: white;
-    margin-bottom: 10px
+    margin-bottom: 10px;
+    background-color: #828A95;
+	 color: white;
+	 border: 1px solid #828A95;
+}
+
+.input-card-form button:hover {
+	background-color: #5F656D;
+	color: white;
+	border: 1px solid #5F656D;
 }
 
 .cards-container {
 	display: flex; 
 	flex-direction: column;
    align-items: center;
+}
+
+
+.header {
+	display: flex; 
+	justify-content: flex-end;
+	background-color: white; 
 
 }
+
+.logo {
+	height: 50px; 
+}
+
+#homepage {
+	text-align: center;
+	font-size: 2em; 
+}
+
