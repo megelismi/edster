@@ -1,11 +1,16 @@
 const questions_url = "/";
 const users_url = "/users";
+import cookie from 'react-cookie';
 
 // get user
 
 export const getUser = () => dispatch => {
-	return fetch(users_url + '/Megan')
-		.then(res => {
+	return fetch(users_url + `/${cookie.load('id')}`,
+	{
+		headers: {
+			'Authorization': `Bearer ${cookie.load('accessToken')}`
+		}
+	}).then(res => {
 			if (!res.ok) {
 				throw new Error(res.status);
 			}
@@ -32,8 +37,12 @@ export const getError = error => ({
 // get question
 
 export const getQuestion = () => dispatch => {
-	return fetch(users_url + '/Megan/questions')
-		.then(res => {
+	return fetch(users_url + `/${cookie.load('id')}/questions`,
+	{
+		headers: {
+			'Authorization': `Bearer ${cookie.load('accessToken')}`
+		}
+	}).then(res => {
 			if (!res.ok) {
 				throw new Error(res.status);
 			}
@@ -64,11 +73,14 @@ export const getQuestionError = error => ({
 
 export const sendResult = (result) => dispatch => {
 	return fetch(
-		users_url + '/Megan/questions',
+		users_url + `/${cookie.load('id')}/questions`,
 		{
 			method: "PUT",
 			body: JSON.stringify({ result }),
-			headers: {"Content-Type": "application/json"}
+			headers: {
+				"Content-Type": "application/json",
+				'Authorization': `Bearer ${cookie.load('accessToken')}`
+			}
 		}
 	).then(res => {
 		if (!res.ok) {
