@@ -3,7 +3,15 @@ import { hashHistory } from 'react-router';
 
 function ProgressBtn () {
 	return (
-		<button className="progress-btn" onClick={() => hashHistory.push('/progress')}>Progress</button>
+		<div className="dropdown">
+			<h6>Menu</h6>
+			<div>
+				Logout 
+			</div>
+			<div>
+				Progress Report
+			</div>
+		</div>
 	)
 }
 

@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
-import LogoutBtn from './logout_btn';
-import ProgressBtn from './progress_btn';
 import CorrectScoreBtn from './correct_score_btn';
 import IncorrectScoreBtn from './incorrect_score_btn';
 import Feedback from './feedback';
@@ -47,8 +45,10 @@ class GameContainer extends React.Component {
 		} else {
 			return (
 				<div className="game-container">
-					<LogoutBtn />
-					<ProgressBtn />
+					<div class="header">
+						<Dropdown />
+						<img src="/dster-logo.png"/>
+					</div>
 					<div className={'feedback-container'}>
 						<Feedback current={this.state.current} correctCount={this.state.correct} user={this.props.user} />
 					</div>
