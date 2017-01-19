@@ -34,7 +34,7 @@ passport.use(new GoogleStrategy({
 				accessToken: accessToken,
 				name: profile.displayName
 			} },
-			{ upsert: true, 'new': true }).then((user) => {
+			{ upsert: true, setDefaultsOnInsert: true, 'new': true }).then((user) => {
 				callback(null, user)
 			}).catch((err) => {
 				console.log(err);
@@ -57,7 +57,7 @@ app.get('/auth/google/callback',
 
 // API ENDPOINTS
 
-app.get('/users/:id/questions', jsonParser, (req, res) => {
+app.get('/users/:id/questions', passport.authenticate('bearer', { session: false }), jsonParser, (req, res) => {
     const { id } = req.params;
     User.findOne({'googleID': id}, (err, data) => {
         if (err){
@@ -67,9 +67,7 @@ app.get('/users/:id/questions', jsonParser, (req, res) => {
         res.status(200).json(data.questionBank[0]);
     })
 })
-//
-// router.get('/questions', passport.authenticate('bearer', { session: false }),
-// (req, res) => res.json(req.user.questions));
+
 
 app.get('/users/:id', passport.authenticate('bearer', { session: false }),
 		(req, res) => {
@@ -85,6 +83,39 @@ app.get('/users/:id', passport.authenticate('bearer', { session: false }),
 })
 
 
+app.put('/users/:id/questions', passport.authenticate('bearer', { session: false }), jsonParser, (req, res) => {
+   const {id} = req.params;
+
+   const {body} = req;
+
+
+   let updatedQuestionBank;
+
+    User.findOne({'googleID': id}, (err, data) => {
+        if (err){
+            console.log("error was made:", err);
+            res.send(err);
+        }
+        updatedQuestionBank = spaceQuestions(data.questionBank, body.result);
+        data.questionBank = updatedQuestionBank;
+        console.log('updated', updatedQuestionBank)
+        data.save();
+        res.status(200).json({});
+    })
+});
+
+const spaceQuestions = (array, lastQuestionAnswered) => {
+  if (!lastQuestionAnswered.correct) {
+    var question = array.splice(0, 1)
+    array.splice(3, 0, question[0]);
+  }
+  else {
+    var shifted = array.shift();
+    array.push(lastQuestionAnswered);
+  }
+  return array;
+}
+
 app.post('/users', jsonParser, (req, res) => {
     console.log(req.body)
     User.create(req.body)
@@ -99,40 +130,6 @@ app.post('/questions', jsonParser, (req, res) => {
     .then(data => res.status(200).json(data))
     .catch(err => console.log(err))
 })
-
-const spaceQuestions = (array, lastQuestionAnswered) => {
-  if (!lastQuestionAnswered.correct) {
-    var question = array.splice(0, 1)
-    array.splice(3, 0, question[0]);
-  }
-  else {
-    var shifted = array.shift();
-    array.push(lastQuestionAnswered);
-  }
-  return array;
-}
-
-
-app.put('/users/:username/questions', jsonParser, (req, res) => {
-   const {username} = req.params;
-
-   const {body} = req;
-
-
-   let updatedQuestionBank;
-
-    User.findOne({'name': username}, (err, data) => {
-        if (err){
-            console.log("error was made:", err);
-            res.send(err);
-        }
-        updatedQuestionBank = spaceQuestions(data.questionBank, body.result);
-        data.questionBank = updatedQuestionBank;
-        console.log('updated', updatedQuestionBank)
-        data.save();
-        res.status(200).json({});
-    })
-});
 
 
 app.delete('/users/:id', (req, res) => {

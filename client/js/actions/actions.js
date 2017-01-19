@@ -39,8 +39,8 @@ export const getError = error => ({
 export const getQuestion = () => dispatch => {
 	return fetch(users_url + '/114344002342888496768/questions',
 	{
-		Headers: {
-			'Authorization': 'Bearer ya29.GlvYA8lTs11-Oydh4DE02pupH4BNSekqr51NoDKxLzldohJvFCCzU9kl2bT2r-xR76rosts4xjRBMCiEeeE2jHokzDBuDbHeBeNOhu77OsAUfRVBL3OtX8b1CN8u'
+		headers: {
+			'Authorization': `Bearer ${cookie.load('accessToken')}`
 		}
 	}).then(res => {
 			if (!res.ok) {
@@ -73,11 +73,14 @@ export const getQuestionError = error => ({
 
 export const sendResult = (result) => dispatch => {
 	return fetch(
-		users_url + '/Megan/questions',
+		users_url + '/114344002342888496768/questions',
 		{
 			method: "PUT",
 			body: JSON.stringify({ result }),
-			headers: {"Content-Type": "application/json"}
+			headers: {
+				"Content-Type": "application/json",
+				'Authorization': `Bearer ${cookie.load('accessToken')}`
+			}
 		}
 	).then(res => {
 		if (!res.ok) {
