@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../../actions/actions';
+
 
 class ProgressContainer extends React.Component {
 	constructor (props) {
@@ -7,7 +9,7 @@ class ProgressContainer extends React.Component {
 	}
 
 	render () {
-		var userProgressArray =  [
+	var userProgressArray = [
             {
                 "french": "le pain",
                 "english": "bread",
@@ -19,7 +21,7 @@ class ProgressContainer extends React.Component {
                 "french": "le poisson",
                 "english": "fish",
                 "id": 2,
-                "successes": 6, 
+                "successes": 8, 
                 "failures": 0
             },
             {
@@ -54,7 +56,7 @@ class ProgressContainer extends React.Component {
                 "french": "l'homme",
                 "english": "man",
                 "id": 7,
-                "successes": 0, 
+                "successes": 6, 
                 "failures": 0
             },
             {
@@ -110,7 +112,7 @@ class ProgressContainer extends React.Component {
                 "french": "la faim",
                 "english": "hunger",
                 "id": 15,
-                "successes": 8, 
+                "successes": 0, 
                 "failures": 0
             }
         ]
