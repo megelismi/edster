@@ -4,6 +4,8 @@ function Feedback (props) {
 	let feedback;
 	const { current, user, correctCount } = props;
 
+	// feedback is changing on submit AND on page reload (w/ get request)
+
 	if (current === 'start') {
 		feedback = `Welcome, ${user}! Let\'s get started.`
 	} else if (current) {
