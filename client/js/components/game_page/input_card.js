@@ -10,7 +10,6 @@ class InputCard extends React.Component {
 
 	sendData(e) {
 		e.preventDefault();
-		console.log(this.props.selected);
 		const { selected, changeCount, sendResult } = this.props;
 		let newObj = selected;
 		let successCount = selected.successes, failureCount = selected.failures;

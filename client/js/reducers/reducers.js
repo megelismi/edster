@@ -28,6 +28,7 @@ const questionInfo = (state = {}, action) => {
 				selected_question: action.question
 			});
 		case actions.GET_QUESTIONS_ARRAY_SUCCESS:
+			console.log(action.questions);
 			return state = Object.assign({}, state, {
 				questions_array: action.questions
 			});

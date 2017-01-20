@@ -121,15 +121,20 @@ app.put('/users/:id/questions', passport.authenticate('bearer', { session: false
 });
 
 const spaceQuestions = (array, lastQuestionAnswered) => {
+	let newArray;
+	console.log('lastQuestionAnswered', lastQuestionAnswered);
   if (lastQuestionAnswered.correct === 'false') {
-    array.shift();
-    array.splice(3, 0, lastQuestionAnswered);
+    newArray = array.slice(1, array.length);
+		console.log('newArray first', newArray);
+    newArray.splice(3, 0, lastQuestionAnswered);
+		console.log('newArray', newArray);
   }
   else {
     var shifted = array.shift();
     array.push(lastQuestionAnswered);
+		newArray = array;
   }
-  return array;
+  return newArray;
 }
 
 app.post('/users', jsonParser, (req, res) => {

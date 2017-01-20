@@ -95,7 +95,6 @@ export const getQuestionError = error => ({
 // update user's current score
 
 export const sendResult = (result) => dispatch => {
-	console.log('SENDING OBJECT BACK TO SERVER:', result)
 	return fetch(
 		users_url + `/${cookie.load('id')}/questions`,
 		{
