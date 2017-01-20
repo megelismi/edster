@@ -46,6 +46,7 @@ class GameContainer extends React.Component {
 			return (
 				<div className="game-container">
 					<div className="header">
+						<img className="logo" src="assets/Edster-logo.png"/>
 						<Dropdown />
 					</div>
 					<div className={'feedback-container'}>

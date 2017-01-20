@@ -3,8 +3,8 @@ import { hashHistory } from 'react-router';
 
 function Login () {
 	return (
-		<div>
-			<a href="/auth/google">Log in!</a>
+		<div className="login-link-container">
+			<a className="login-link" href="/auth/google">Log in with Google</a>
 		</div>
 	)
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import Login from './login';
 
 class Welcome extends React.Component {
 
@@ -7,18 +8,21 @@ class Welcome extends React.Component {
 
 	}
 
-
-
 	componentWillUnmount () {
 		document.body.style.backgroundImage = null;
 	}
 
 	render () {
 		return (
-			<div id="homepage">Welcome!</div>
+			<div className="homepage">
+				<h1 className="homepage-text">Welcome to <span className="app-name">Edster</span>. Ready to get started?</h1>
+				<Login />
+			</div>
 		)
 	}
 }
 
 export default Welcome;
+
+<img src="/assets/edster-logo.png"/>
 

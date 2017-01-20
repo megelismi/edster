@@ -9,19 +9,26 @@ html, body {
 
 body {
 	margin: 0;
-	color: #828A95; 
+	// color: #828A95; 
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover; 
 }
 
-// background:
-// 	linear-gradient(
-//       rgba(0, 0, 0, 0.5),
-//       rgba(0, 0, 0, 0.5)
-//     ),
-// 	no-repeat center center fixed;
-// background-size: cover;
+.homepage {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    margin-top: 100px;
+}
+.homepage-text {
+	color: white; 
+	font-size: 300%; 
+}
+
 .dropdown {
     position: relative;
  	 margin-right: 25px; 
@@ -48,11 +55,12 @@ body {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    font-size: 14px;
 }
 
 .dropdown-content a:hover {background-color: #f1f1f1}
 
-.dropdown h5 {
+.dropdown h4 {
 	margin-top: 10px;
    margin-bottom: 10px;
 
@@ -64,7 +72,7 @@ body {
 
 }
 
-.dropdown h5:after {
+.dropdown h4:after {
 	content: "\f107";
 	font-family: FontAwesome;
 	font-style: normal;
@@ -74,13 +82,13 @@ body {
 }
 
 .score-btn, .feedback-text {
-	text-align: center;  
+	text-align: center; 
+	font-size: 14px;  
 }
 
 .feedback-text {
 	color: #406E8E;
-	font-family: 'Shadows Into Light Two', cursive;
-	// font-family: 'Waiting for the Sunrise', cursive;
+	font-size: 20px; 
 }
 
 .score-btn {
@@ -148,17 +156,74 @@ body {
 
 .header {
 	display: flex; 
-	justify-content: flex-end;
+	justify-content: space-between; 
 	background-color: white; 
 
 }
 
 .logo {
 	height: 50px; 
+	margin-left: 15px;
 }
 
-#homepage {
-	text-align: center;
-	font-size: 2em; 
+.login-link {
+   color: white;
+   text-decoration: none;
+   display: inline-block;
+   border: 2px solid white;
+   line-height: 2em;
+   padding: 0 .5em;
+   height: 2em;
+   text-align: center;
+   width: 100%;
+   height: 36px;
+   margin: 0 auto; 
 }
 
+.login-link-container {
+	display: flex; 
+	width: 12%; 
+	float: right; 
+	margin: 20px; 
+}
+
+
+.fa-times {
+	color: red; 
+}
+
+.fa-check {
+	color: green; 
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 30%;
+}
+
+td, th {
+    border: 1px solid #A4C5D5;
+    text-align: left;
+    padding: 8px; 
+}
+
+.progress-container {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.progress-container h1 {
+	margin-bottom: 0; 
+	color: #406E8E;
+}
+
+.progress-container p {
+	margin-bottom: 40px;  
+	font-size: 18px; 
+}
+
+.app-name{
+	font-family: 'Pacifico', cursive;
+}

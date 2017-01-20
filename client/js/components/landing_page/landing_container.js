@@ -6,7 +6,6 @@ function LandingContainer () {
 	return (
 		<div className='LandingContainer'>
 			<Welcome />
-			<Login />
 		</div>
 	)
 }
