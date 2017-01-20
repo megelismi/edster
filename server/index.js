@@ -18,11 +18,12 @@ console.log(`Server running in ${process.env.NODE_ENV} mode`);
 const app = express();
 const jsonParser = bodyParser.json();
 app.use(express.static(process.env.CLIENT_PATH));
+
 // AUTH
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:8080/auth/google/callback"
+    callbackURL: "/auth/google/callback"
   },
     function(accessToken, refreshToken, profile, callback) {
         User.findOneAndUpdate({ googleID: profile.id },
