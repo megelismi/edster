@@ -23,7 +23,7 @@ app.use(express.static(process.env.CLIENT_PATH));
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "/auth/google/callback"
+    callbackURL: "http://edster.herokuapp.com/auth/google/callback"
   },
     function(accessToken, refreshToken, profile, callback) {
         User.findOneAndUpdate({ googleID: profile.id },
@@ -39,6 +39,7 @@ passport.use(new GoogleStrategy({
             });
   }
 ));
+
 app.get('/auth/google',
   passport.authenticate('google', { scope: ['profile'] }));
 app.get('/auth/google/callback',
@@ -50,6 +51,7 @@ app.get('/auth/google/callback',
     res.cookie('id', req.user.googleID, { expires: 0, httpOnly: false })
         res.redirect('/#/quiz');
   });
+
 app.get('/auth/logout', (req, res) => {
   req.logout();
   res.clearCookie('accessToken');
@@ -57,6 +59,7 @@ app.get('/auth/logout', (req, res) => {
   res.redirect('/#/welcome');
     // next step: revoke Google's token access
 });
+
 // API ENDPOINTS
 app.get('/users/:id/questions', passport.authenticate('bearer', { session: false }), jsonParser, (req, res) => {
     const { id } = req.params;
@@ -106,6 +109,7 @@ app.put('/users/:id/questions', passport.authenticate('bearer', { session: false
         res.status(200).json({});
     });
 });
+
 const spaceQuestions = (array, lastQuestionAnswered) => {
     let newArray;
     console.log('lastQuestionAnswered', lastQuestionAnswered);
@@ -122,23 +126,27 @@ const spaceQuestions = (array, lastQuestionAnswered) => {
   }
   return newArray;
 }
+
 app.post('/users', jsonParser, (req, res) => {
     console.log(req.body)
     User.create(req.body)
     .then(data => res.status(200).json(data))
     .catch(err => console.log("Error:", err))
 });
+
 app.post('/questions', jsonParser, (req, res) => {
     console.log(req.body)
     Question.create(req.body)
     .then(data => res.status(200).json(data))
     .catch(err => console.log("Error:", err))
 });
+
 app.delete('/users/:id', (req, res) => {
   User.findByIdAndRemove(req.params.id)
     .then(() => res.status(200).json(req.params.id))
     .catch(err => console.log("Error:", err))
 });
+
 // .env to hide usernames, passwords, secrets...
 function runServer() {
     var databaseUri = process.env.DATABASE_URI || global.databaseUri;
