@@ -27,7 +27,7 @@ app.use(express.static(process.env.CLIENT_PATH));
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:8080/auth/google/callback"
+    callbackURL: "http://edster.herokuapp.com/auth/google/callback"
   },
 	function(accessToken, refreshToken, profile, callback) {
 		User.findOneAndUpdate({ googleID: profile.id },
@@ -145,7 +145,6 @@ app.post('/users', jsonParser, (req, res) => {
     .catch(err => console.log("Error:", err))
 });
 
-
 app.post('/questions', jsonParser, (req, res) => {
     console.log(req.body)
     Question.create(req.body)
@@ -159,7 +158,6 @@ app.delete('/users/:id', (req, res) => {
     .then(() => res.status(200).json(req.params.id))
     .catch(err => console.log("Error:", err))
 });
-
 
 // .env to hide usernames, passwords, secrets...
 function runServer() {
