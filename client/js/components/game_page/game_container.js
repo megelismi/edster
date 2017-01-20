@@ -5,7 +5,7 @@ import ScoreBtn from './score_btn';
 import Feedback from './feedback';
 import OutputCard from './output_card';
 import InputCard from './input_card';
-import Dropdown from './dropdown';
+import Header from './header';
 
 class GameContainer extends React.Component {
 	constructor () {
@@ -45,10 +45,7 @@ class GameContainer extends React.Component {
 		} else {
 			return (
 				<div className="game-container">
-					<div className="header">
-						<img className="logo" src="assets/Edster-logo.png"/>
-						<Dropdown />
-					</div>
+					<Header />
 					<div className={'feedback-container'}>
 						<Feedback current={this.state.current} correctCount={this.state.currentHigh} user={this.props.user} />
 					</div>

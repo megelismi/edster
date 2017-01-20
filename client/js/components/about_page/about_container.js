@@ -1,8 +1,21 @@
 import React from 'react'; 
+import { hashHistory } from 'react-router';
+import {Link} from 'react-router';
 
 function AboutContainer () {
 	return (
 		<div className="about-container">
+		<div className="header">
+		    <img className="logo" src="assets/Edster-logo.png"/>
+		    <div className="dropdown">
+		         <h4>Menu</h4>
+		         <div className="dropdown-content">
+		            <Link to={'/quiz'}>Flashcards</Link>
+		            <Link to ={'/progress'}>My Progress</Link>
+		            <a href="/auth/logout">Logout</a>
+		         </div>
+      		</div>
+      	</div>
 			<h1>About Us</h1>
 			<div className="about-us-container">
 				<div className="indiv-bio">

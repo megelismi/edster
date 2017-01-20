@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
+import { hashHistory } from 'react-router';
+import {Link} from 'react-router';
+
 
 
 class ProgressContainer extends React.Component {
@@ -138,7 +141,18 @@ class ProgressContainer extends React.Component {
 
 		return (
 		<div className="progress-container">
-			<h1>{this.props.user}'s Progress Report</h1>
+            <div className="header">
+                <img className="logo" src="assets/Edster-logo.png"/>
+                <div className="dropdown">
+                    <h4>Menu</h4>
+                    <div className="dropdown-content">
+                        <Link to ={'/quiz'}>Flashcards</Link>
+                        <Link to={'/about'}>About Us</Link>
+                        <a href="/auth/logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+			<h1>Your Progress Report</h1>
 			<p>Words are considered mastered when you've answered them correctly 5 or more times.</p>
 			<table className="progress-table">
 				<thead>
