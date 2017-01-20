@@ -48,7 +48,6 @@ export const getQuestion = () => dispatch => {
 			}
 			return res.json();
 		}).then(res => {
-			console.log('get result', res);
 			dispatch(getQuestionSuccess(res))
 		}).catch(err => {
 			dispatch(getQuestionError(err))
@@ -67,7 +66,6 @@ export const getQuestionsArray = () => dispatch => {
 			}
 			return res.json();
 		}).then(res => {
-			console.log('get result', res);
 			dispatch(getQuestionsArraySuccess(res))
 		}).catch(err => {
 			dispatch(getQuestionError(err))

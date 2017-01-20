@@ -60,7 +60,8 @@ app.get('/auth/logout', (req, res) => {
   res.clearCookie('accessToken');
   res.clearCookie('id');
   res.redirect('/#/welcome');
-})
+	// next step: revoke Google's token access
+});
 
 // API ENDPOINTS
 
@@ -68,64 +69,61 @@ app.get('/users/:id/questions', passport.authenticate('bearer', { session: false
     const { id } = req.params;
     User.findOne({'googleID': id}, (err, data) => {
         if (err){
-            console.log("error was made:", err);
+            console.log("Error:", err);
             res.send(err);
         }
         res.status(200).json(data.questionBank[0]);
-    })
-})
+    });
+});
 
 app.get('/users/:id/questions-array', passport.authenticate('bearer', { session: false }), jsonParser, (req, res) => {
     const { id } = req.params;
     User.findOne({'googleID': id}, (err, data) => {
         if (err){
-            console.log("error was made:", err);
+            console.log("Error:", err);
             res.send(err);
         }
         res.status(200).json(data.questionBank);
-    })
-})
+    });
+});
 
-
+// redundancy here because bearer token already contains user info
 app.get('/users/:id', passport.authenticate('bearer', { session: false }),
 		(req, res) => {
     const { id } = req.params;
     User.findOne({'googleID': id}, (err, data) => {
         if (err){
-            console.log("error was made:", err);
+            console.log("Error:", err);
             res.send(err);
         }
         console.log(data);
         res.status(200).json(data.name);
-    })
-})
+    });
+});
 
 
 app.put('/users/:id/questions', passport.authenticate('bearer', { session: false }), jsonParser, (req, res) => {
    const {id} = req.params;
-
    const {body} = req;
-
 
    let updatedQuestionBank;
 
     User.findOne({'googleID': id}, (err, data) => {
         if (err){
-            console.log("error was made:", err);
+            console.log("Error:", err);
             res.send(err);
         }
         updatedQuestionBank = spaceQuestions(data.questionBank, body.result);
         data.questionBank = updatedQuestionBank;
-        console.log('updated', updatedQuestionBank)
         data.save();
         res.status(200).json({});
-    })
+    });
 });
 
 const spaceQuestions = (array, lastQuestionAnswered) => {
-  if (!lastQuestionAnswered.correct) {
-    var question = array.splice(0, 1)
-    array.splice(3, 0, question[0]);
+  if (lastQuestionAnswered.correct === 'false') {
+    array.shift();
+    array.splice(3, 0, lastQuestionAnswered);
   }
   else {
     var shifted = array.shift();
@@ -138,23 +136,26 @@ app.post('/users', jsonParser, (req, res) => {
     console.log(req.body)
     User.create(req.body)
     .then(data => res.status(200).json(data))
-    .catch(err => console.log(err))
-})
+    .catch(err => console.log("Error:", err))
+});
 
 
 app.post('/questions', jsonParser, (req, res) => {
     console.log(req.body)
     Question.create(req.body)
     .then(data => res.status(200).json(data))
-    .catch(err => console.log(err))
-})
+    .catch(err => console.log("Error:", err))
+});
 
 
 app.delete('/users/:id', (req, res) => {
   User.findByIdAndRemove(req.params.id)
     .then(() => res.status(200).json(req.params.id))
-    .catch(err => console.log('delete error'))
-})
+    .catch(err => console.log("Error:", err))
+});
+
+
+// .env to hide usernames, passwords, secrets...
 function runServer() {
     var databaseUri = process.env.DATABASE_URI || global.databaseUri || 'mongodb://user:user@ds119748.mlab.com:19748/flashcards';
     mongoose.connect(databaseUri)
