@@ -5,7 +5,7 @@ import Dropdown from './dropdown';
 function Header () {
 	return (
 		<div className="header">
-			<img className="logo" src="assets/Edster-logo.png"/>
+			<img className="logo" src="assets/edster-logo.png"/>
 			<Dropdown />
 		</div>
 	)

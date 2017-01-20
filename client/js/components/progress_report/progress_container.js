@@ -43,7 +43,7 @@ class ProgressContainer extends React.Component {
 			return (
 			<div className="progress-container">
 	            <div className="header">
-	                <img className="logo" src="assets/Edster-logo.png"/>
+	                <img className="logo" src="assets/edster-logo.png"/>
 	                <div className="dropdown">
 	                    <h4>Menu</h4>
 	                    <div className="dropdown-content">
