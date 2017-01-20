@@ -38,7 +38,6 @@ class GameContainer extends React.Component {
 		alert('something happened!')
 	}
 
-
 	render () {
 		console.log('state', this.state);
 		if (!this.props.selected) {

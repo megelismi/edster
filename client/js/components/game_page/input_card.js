@@ -11,9 +11,15 @@ class InputCard extends React.Component {
 	sendData(e) {
 		e.preventDefault();
 		const { selected, changeCount, sendResult } = this.props;
-		let correct = this.answer.value === selected.english ? true : false ;
 		let newObj = selected;
-		newObj = Object.assign({}, newObj, { correct: correct });
+		let successCount, failureCount;
+		let correct = this.answer.value === selected.english ? true : false ;
+		correct ? successCount = selected.successes + 1 : failureCount = selected.failures + 1 ;
+		newObj = Object.assign({}, newObj, {
+			correct: correct,
+			successes: successCount,
+			failures: failureCount
+		});
 
 		changeCount(correct);
 		sendResult(newObj);
