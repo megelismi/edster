@@ -15,86 +15,113 @@ var userSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    correctInARow: Array,
-    masteredWords: Array,
-    unMasteredWords: Array,
     questionBank: {
         type: Array, 
         default:  [
             {
                 "french": "le pain",
                 "english": "bread",
-                "id": 1
+                "id": 1, 
+                "successes": 0, 
+                "failures": 0
             },
             {
                 "french": "le poisson",
                 "english": "fish",
-                "id": 2
+                "id": 2,
+                "successes": 0, 
+                "failures": 0
             },
             {
                 "french": "le pamplemousse",
                 "english": "grapefruit",
-                "id": 3
+                "id": 3,
+                "successes": 0, 
+                "failures": 0
             },
             {
                 "french": "le velo",
                 "english": "bicycle",
-                "id": 4
+                "id": 4,
+                "successes": 0, 
+                "failures": 0
             },
             {
                 "french": "l'immeuble",
                 "english": "building",
-                "id": 5
+                "id": 5,
+                "successes": 0, 
+                "failures": 0
             },
             {
                 "french": "la femme",
                 "english": "woman",
-                "id": 6
+                "id": 6,
+                "successes": 0, 
+                "failures": 0
             },
             {
                 "french": "l'homme",
                 "english": "man",
-                "id": 7
+                "id": 7,
+                "successes": 0, 
+                "failures": 0
             },
             {
                 "french": "la famille",
                 "english": "family",
-                "id": 8
+                "id": 8,
+                "successes": 0, 
+                "failures": 0
             },
             {
                 "french": "les devoirs",
                 "english": "homework",
-                "id": 9
+                "id": 9,
+                "successes": 0, 
+                "failures": 0
             },
             {
                 "french": "le chien",
                 "english": "dog",
-                "id": 10
+                "id": 10,
+                "successes": 0, 
+                "failures": 0
             },
             {
                 "french": "le chat",
                 "english": "cat",
-                "id": 11
+                "id": 11,
+                "successes": 0, 
+                "failures": 0
             },
             {
                 "french": "la rue",
                 "english": "street",
-                "id": 12
+                "id": 12,
+                "successes": 0, 
+                "failures": 0
             },
             {
                 "french": "les mains",
                 "english": "hands",
-                "id": 13
+                "id": 13,
+                "successes": 0, 
+                "failures": 0
             },
             {
                 "french": "les yeux",
                 "english": "eyes",
-                "id": 14
+                "id": 14,
+                "successes": 0, 
+                "failures": 0
             },
             {
                 "french": "la faim",
                 "english": "hunger",
-                "id": 15
+                "id": 15,
+                "successes": 0, 
+                "failures": 0
             }
         ]
     }
