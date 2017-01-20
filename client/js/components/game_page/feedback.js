@@ -1,12 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 function Feedback (props) {
 	let feedback;
 	const { current, user, correctCount } = props;
 
 	if (current === 'start') {
-		feedback = `Welcome back, ${user}! Let's get started.`
+		feedback = `Welcome, ${user}! Let\'s get started.`
 	} else if (current) {
 		if (correctCount % 10 === 0) {
 			feedback = `Wow! ${correctCount} in a row — you're on fire!`

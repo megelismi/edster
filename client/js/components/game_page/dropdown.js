@@ -5,7 +5,7 @@ import {Link} from 'react-router';
 function Dropdown () {
   return (
     <div className="dropdown">
-      <h5>Menu</h5>
+      <h4>Menu</h4>
       <div className="dropdown-content">
         <Link to={'/about'}>About Us</Link>
         <Link to ={'/progress'}>My Progress</Link>
