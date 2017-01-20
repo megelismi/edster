@@ -3,11 +3,25 @@
 	font-family: 'Roboto Condensed', sans-serif;
 }
 
+html, body {
+	height: 100%;
+}
+
 body {
 	margin: 0;
 	color: #828A95; 
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover; 
 }
 
+// background:
+// 	linear-gradient(
+//       rgba(0, 0, 0, 0.5),
+//       rgba(0, 0, 0, 0.5)
+//     ),
+// 	no-repeat center center fixed;
+// background-size: cover;
 .dropdown {
     position: relative;
  	 margin-right: 25px; 
@@ -22,6 +36,7 @@ body {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     font-size:0.8em;
+    width: 100%;
 }
 
 .dropdown:hover .dropdown-content {
