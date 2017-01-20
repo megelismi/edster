@@ -39,7 +39,6 @@ class GameContainer extends React.Component {
 	}
 
 	render () {
-		console.log('state', this.state);
 		if (!this.props.selected) {
 			return <div></div>
 		} else {
@@ -55,7 +54,7 @@ class GameContainer extends React.Component {
 					</div>
 					<div className="scores">
 						<ScoreBtn count={this.state.correct} text="Correct" />
-						<ScoreBtn count={this.state.correct} text="Incorrect" />
+						<ScoreBtn count={this.state.incorrect} text="Incorrect" />
 					</div>
 				</div>
 			)
