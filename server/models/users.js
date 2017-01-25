@@ -19,23 +19,23 @@ var userSchema = mongoose.Schema({
         type: Array,
         default:  [
             {
-								"correct": "false",
-								"french": "le pain",
+				"correct": "false",
+				"french": "le pain",
                 "english": "bread",
                 "id": 1,
                 "successes": 0,
                 "failures": 0
             },
             {
-								"correct": "false",
-								"french": "le poisson",
+				"correct": "false",
+				"french": "le poisson",
                 "english": "fish",
                 "id": 2,
                 "successes": 0,
                 "failures": 0
             },
             {
-								"correct": "false",
+				"correct": "false",
                 "french": "le pamplemousse",
                 "english": "grapefruit",
                 "id": 3,
@@ -43,7 +43,7 @@ var userSchema = mongoose.Schema({
                 "failures": 0
             },
             {
-								"correct": "false",
+				"correct": "false",
                 "french": "le velo",
                 "english": "bicycle",
                 "id": 4,
@@ -51,7 +51,7 @@ var userSchema = mongoose.Schema({
                 "failures": 0
             },
             {
-								"correct": "false",
+				"correct": "false",
                 "french": "l'immeuble",
                 "english": "building",
                 "id": 5,
@@ -59,7 +59,7 @@ var userSchema = mongoose.Schema({
                 "failures": 0
             },
             {
-								"correct": "false",
+				"correct": "false",
                 "french": "la femme",
                 "english": "woman",
                 "id": 6,
@@ -67,7 +67,7 @@ var userSchema = mongoose.Schema({
                 "failures": 0
             },
             {
-								"correct": "false",
+				"correct": "false",
                 "french": "l'homme",
                 "english": "man",
                 "id": 7,
@@ -75,7 +75,7 @@ var userSchema = mongoose.Schema({
                 "failures": 0
             },
             {
-								"correct": "false",
+				"correct": "false",
                 "french": "la famille",
                 "english": "family",
                 "id": 8,
@@ -83,7 +83,7 @@ var userSchema = mongoose.Schema({
                 "failures": 0
             },
             {
-								"correct": "false",
+				"correct": "false",
                 "french": "les devoirs",
                 "english": "homework",
                 "id": 9,
@@ -91,7 +91,7 @@ var userSchema = mongoose.Schema({
                 "failures": 0
             },
             {
-								"correct": "false",
+				"correct": "false",
                 "french": "le chien",
                 "english": "dog",
                 "id": 10,
@@ -99,7 +99,7 @@ var userSchema = mongoose.Schema({
                 "failures": 0
             },
             {
-								"correct": "false",
+				"correct": "false",
                 "french": "le chat",
                 "english": "cat",
                 "id": 11,
@@ -107,7 +107,7 @@ var userSchema = mongoose.Schema({
                 "failures": 0
             },
             {
-								"correct": "false",
+				"correct": "false",
                 "french": "la rue",
                 "english": "street",
                 "id": 12,
@@ -115,7 +115,7 @@ var userSchema = mongoose.Schema({
                 "failures": 0
             },
             {
-								"correct": "false",
+			    "correct": "false",
                 "french": "les mains",
                 "english": "hands",
                 "id": 13,
@@ -123,7 +123,7 @@ var userSchema = mongoose.Schema({
                 "failures": 0
             },
             {
-								"correct": "false",
+				"correct": "false",
                 "french": "les yeux",
                 "english": "eyes",
                 "id": 14,
@@ -131,7 +131,7 @@ var userSchema = mongoose.Schema({
                 "failures": 0
             },
             {
-								"correct": "false",
+				"correct": "false",
                 "french": "la faim",
                 "english": "hunger",
                 "id": 15,
@@ -145,83 +145,3 @@ var userSchema = mongoose.Schema({
 var User = mongoose.model('User', userSchema);
 
 module.exports = User;
-
-// {"name": "Megan",
-// "questionBank":  [
-//     {
-//         "french": "le pain",
-//         "english": "bread",
-//         "id": 1
-//     },
-//     {
-//         "french": "le poisson",
-//         "english": "fish",
-//         "id": 2
-//     },
-//     {
-//         "french": "le pamplemousse",
-//         "english": "grapefruit",
-//         "id": 3
-//     },
-//     {
-//         "french": "le velo",
-//         "english": "bicycle",
-//         "id": 4
-//     },
-//     {
-//         "french": "l'immeuble",
-//         "english": "building",
-//         "id": 5
-//     },
-//     {
-//         "french": "la femme",
-//         "english": "woman",
-//         "id": 6
-//     },
-//     {
-//         "french": "l'homme",
-//         "english": "man",
-//         "id": 7
-//     },
-//     {
-//         "french": "la famille",
-//         "english": "family",
-//         "id": 8
-//     },
-//     {
-//         "french": "les devoirs",
-//         "english": "homework",
-//         "id": 9
-//     },
-//     {
-//         "french": "le chien",
-//         "english": "dog",
-//         "id": 10
-//     },
-//     {
-//         "french": "le chat",
-//         "english": "cat",
-//         "id": 11
-//     },
-//     {
-//         "french": "la rue",
-//         "english": "street",
-//         "id": 12
-//     },
-//     {
-//         "french": "les mains",
-//         "english": "hands",
-//         "id": 13
-//     },
-//     {
-//         "french": "les yeux",
-//         "english": "eyes",
-//         "id": 14
-//     },
-//     {
-//         "french": "la faim",
-//         "english": "hunger",
-//         "id": 15
-//     }
-// ]
-// }
