@@ -1,74 +1,29 @@
-# Thinkful Full Stack Template
+# Edster
 
-A template for developing and deploying full stack JavaScript apps.  Supports ES2015 on the client and server-side.
+Edster is about making learning a new language an engaging experience by allowing users to track their progress over time and practice on unmastered words. 
 
-## Getting started
+## How To Use Edster
 
-### Setting up a project
+Once users are authenticated through their Google accounts, they can log in and start practicing their French vocabulary by typing the English word below it.
 
-* Move into your projects directory: `cd ~/YOUR_PROJECTS_DIRECTORY`
-* Clone this repository: `git clone https://github.com/oampo/thinkful-full-stack-template YOUR_PROJECT_NAME`
-* Move into the project directory: `cd YOUR_PROJECT_NAME`
-* Install the dependencies: `npm install`
-* Create a new repo on GitHub: https://github.com/new
-    * Make sure the "Initialize this repository with a README" option is left **un**checked
-* Update the remote to point to your GitHub repository: `git remote set-url origin https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME`
+[screenshot of flashcard page]
 
-### Working on the project
+Users can click on My Progress to see a list of words that they have mastered and not mastered. 
 
-* Move into the project directory: `cd ~/YOUR_PROJECTS_DIRECTORY/YOUR_PROJECT_NAME`
-* Run the development task: `npm run dev`
-    * Starts a server running at http://localhost:8080
-    * Automatically rebuilds when any of your files change
+[screenshot of progress report]
 
-## Directory layout
+## Spaced Repetition
 
-```
-.
-├── client      Client-side code
-│   ├── assets  Images, videos, etc.
-│   ├── js      JavaScript
-│   └── scss    SASS stylesheets
-├── server      Server-side code
-└── test        Tests
-    ├── client  Client tests
-    └── server  Server tests
-```
+Edster uses a spaced repetition algorithm on the server side. According to Wikipedia, "Spaced repetition is a learning technique that incorporates increasing intervals of time between subsequent review of previously learned material in order to exploit the psychological spacing effect." Our basic algorithm was written with this concept in mind. If a user answers a word incorrectly, they will re-encounter it sooner in their review than a word that they answer correctly. 
 
-## Deployment
+[snapshot of algorithm]
 
-Requires the [Heroku CLI client](https://devcenter.heroku.com/articles/heroku-command-line).
+## Technical 
 
-### Setting up the project on Heroku
+* Frontend: React, Redux, CSS
+* Backend: Node.js, Express
+* Database: MongoDB
 
-* Move into the project directory: `cd ~/YOUR_PROJECTS_DIRECTORY/YOUR_PROJECT_NAME`
-* Create the Heroku app: `heroku create PROJECT_NAME`
-* Instruct Heroku to install the development dependencies: `heroku config:set NPM_CONFIG_PRODUCTION=false`
+## Live Demo
 
-### Deploying to Heroku
-
-* Push your code to Heroku: `git push heroku master`
-
-## Continuous Integration
-
-* Add your repository to [Travis CI](https://travis-ci.org/)
-
-## Continuous Deployment
-
-Requires the [Travis CLI client](https://github.com/travis-ci/travis.rb).
-
-### Setting up CD
-
-* Add the following configuration to `.travis.yml`:
-
-    ```
-    deploy:
-      provider: heroku
-      app: YOUR_HEROKU_APP_NAME
-    ```
-* Add your Heroku API key: `travis encrypt $(heroku auth:token) --add deploy.api_key`
-
-### Deploying using CD
-
-* Push your code to GitHub: `git push origin master`
-
+http://edster.herokuapp.com/#/welcome
