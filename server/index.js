@@ -27,7 +27,7 @@ app.use(express.static(process.env.CLIENT_PATH));
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://edster.herokuapp.com/auth/google/callback"
+    callbackURL: process.env.CALLBACK_URL
   },
 	function(accessToken, refreshToken, profile, callback) {
 		User.findOneAndUpdate({ googleID: profile.id },
