@@ -20,9 +20,9 @@ Edster uses a spaced repetition algorithm on the server side. According to Wikip
 
 ## Technical 
 
-Frontend: React, Redux, CSS
-Backend: Node.js, Express
-Database: MongoDB
+* Frontend: React, Redux, CSS
+* Backend: Node.js, Express
+* Database: MongoDB
 
 ## Live Demo
 
