@@ -15,7 +15,7 @@ function Feedback (props) {
 			feedback = `${correctCount} in a row! Keep up the good work, ${user}!`;
 		}
 	} else {
-		feedback = `Keep trying. You got this!`
+		feedback = `Whoops! That was incorrect. Keep trying!`
 	}
 
 	return <p className="feedback-text">{feedback}</p>
