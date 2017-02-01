@@ -13,7 +13,7 @@ class InputCard extends React.Component {
 		const { selected, changeCount, sendResult } = this.props;
 		let newObj = selected;
 		let successCount = selected.successes, failureCount = selected.failures;
-		let correct = this.answer.value === selected.english ? true : false ;
+		let correct = this.answer.value.toLowerCase() === selected.english ? true : false ;
 		correct ? successCount = selected.successes + 1 : failureCount = selected.failures + 1 ;
 		newObj = Object.assign({}, newObj, {
 			correct: correct.toString(),

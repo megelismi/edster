@@ -40,6 +40,7 @@ class GameContainer extends React.Component {
 
 	render () {
 		if (!this.props.selected) {
+			console.log('Refreshing');
 			return <div></div>
 		} else {
 			return (
@@ -47,7 +48,7 @@ class GameContainer extends React.Component {
 					<Header />
 					<div className={'feedback-container'}>
 						<Feedback
-							answer={this.props.selected.french}
+							answer={this.props.selected.english}
 							current={this.state.current}
 							correctCount={this.state.currentHigh}
 							user={this.props.user} />
