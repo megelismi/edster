@@ -20,7 +20,10 @@ console.log(`Server running in ${process.env.NODE_ENV} mode`);
 const app = express();
 const jsonParser = bodyParser.json();
 
-app.use(express.static(process.env.CLIENT_PATH));
+// if statement for testing server
+if(process.env.CLIENT_PATH) {
+  app.use(express.static(process.env.CLIENT_PATH));
+}
 
 // AUTH
 
@@ -134,6 +137,10 @@ const spaceQuestions = (array, lastQuestionAnswered) => {
   return newArray;
 }
 
+app.get('/hello', () => {
+  res.send({message: "hello"})
+})
+
 app.post('/users', jsonParser, (req, res) => {
     console.log(req.body)
     User.create(req.body)
@@ -152,27 +159,42 @@ app.post('/questions', jsonParser, (req, res) => {
 app.delete('/users/:id', (req, res) => {
   User.findByIdAndRemove(req.params.id)
     .then(() => res.status(200).json(req.params.id))
-    .catch(err => console.err0r(err))
+    .catch(err => console.error(err))
 });
 
 // .env to hide usernames, passwords, secrets...
+let server;
+
 function runServer() {
     var databaseUri = process.env.DATABASE_URI || global.databaseUri;
-    mongoose.connect(databaseUri)
+    mongoose.connect(databaseUri) // should be promise here
     return new Promise((resolve, reject) => {
-        app.listen(PORT, HOST, (err) => {
+        server = app.listen(PORT, HOST, (err) => {
             if (err) {
                 console.error(err);
                 reject(err);
             }
             const host = HOST || 'localhost';
             console.log(`Listening on ${host}:${PORT}`);
+            // add to allow server to closer in tests
+            resolve(server);
         });
     });
 }
 if (require.main === module) {
     runServer();
 }
+
+// function runServer() {
+//   return new Promise((resolve, reject) => {
+//     server = app.listen(PORT, HOST, () => {
+//       console.log(`Your app is listening on port ${PORT}`);
+//       resolve(server);
+//     }).on('error', err => {
+//       reject(err)
+//     });
+//   });
+// }
 
 // create stop server function for testing
 function closeServer() {

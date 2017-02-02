@@ -30,7 +30,6 @@ describe('Login', () => {
   });
   it('Should render link to log in with auth/google path', () => {
       login.find('.login-link').length.should.equal(1);
-      login.find('/auth/google').length.should.equal(1);
   });
 });
 
