@@ -30,7 +30,6 @@ passport.use(new GoogleStrategy({
     callbackURL: process.env.CALLBACK_URL
   },
 	function(accessToken, refreshToken, profile, callback) {
-    console.log(profile);
 		User.findOneAndUpdate({ googleID: profile.id },
 			{ $set: {
 				googleID: profile.id,
@@ -40,7 +39,7 @@ passport.use(new GoogleStrategy({
 			{ upsert: true, setDefaultsOnInsert: true, 'new': true }).then((user) => {
 				callback(null, user)
 			}).catch((err) => {
-				console.log(err);
+				console.error(err);
 			});
   }
 ));
@@ -52,7 +51,7 @@ app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/', session: false }),
   function(req, res) {
     // Successful authentication, redirect home.
-		console.log('req user', req.user);
+		// console.log('req user', req.user);
 		res.cookie('accessToken', req.user.accessToken, { expires: 0, httpOnly: false })
     res.cookie('id', req.user.googleID, { expires: 0, httpOnly: false })
 		res.redirect('/#/quiz');
@@ -72,7 +71,7 @@ app.get('/users/:id/questions', passport.authenticate('bearer', { session: false
     const { id } = req.params;
     User.findOne({'googleID': id}, (err, data) => {
         if (err){
-            console.log("Error:", err);
+            console.error(err);
             res.send(err);
         }
         res.status(200).json(data.questionBank[0]);
@@ -83,7 +82,7 @@ app.get('/users/:id/questions-array', passport.authenticate('bearer', { session:
     const { id } = req.params;
     User.findOne({'googleID': id}, (err, data) => {
         if (err){
-            console.log("Error:", err);
+            console.error(err);
             res.send(err);
         }
         res.status(200).json(data.questionBank);
@@ -96,10 +95,9 @@ app.get('/users/:id', passport.authenticate('bearer', { session: false }),
     const { id } = req.params;
     User.findOne({'googleID': id}, (err, data) => {
         if (err){
-            console.log("Error:", err);
+            console.error(err);
             res.send(err);
         }
-        console.log(data);
         res.status(200).json(data.name);
     });
 });
@@ -113,7 +111,7 @@ app.put('/users/:id/questions', passport.authenticate('bearer', { session: false
 
     User.findOne({'googleID': id}, (err, data) => {
         if (err){
-            console.log("Error:", err);
+            console.error(err);
             res.send(err);
         }
         updatedQuestionBank = spaceQuestions(data.questionBank, body.result);
@@ -127,9 +125,7 @@ const spaceQuestions = (array, lastQuestionAnswered) => {
 	let newArray;
   if (lastQuestionAnswered.correct === 'false') {
     newArray = array.slice(1, array.length);
-		// console.log('newArray first', newArray);
     newArray.splice(3, 0, lastQuestionAnswered);
-		// console.log('newArray', newArray);
   }
   else {
     var shifted = array.shift();
@@ -143,21 +139,21 @@ app.post('/users', jsonParser, (req, res) => {
     console.log(req.body)
     User.create(req.body)
     .then(data => res.status(200).json(data))
-    .catch(err => console.log("Error:", err))
+    .catch(err => console.error(err))
 });
 
 app.post('/questions', jsonParser, (req, res) => {
     console.log(req.body)
     Question.create(req.body)
     .then(data => res.status(200).json(data))
-    .catch(err => console.log("Error:", err))
+    .catch(err => console.error(err))
 });
 
 
 app.delete('/users/:id', (req, res) => {
   User.findByIdAndRemove(req.params.id)
     .then(() => res.status(200).json(req.params.id))
-    .catch(err => console.log("Error:", err))
+    .catch(err => console.err0r(err))
 });
 
 // .env to hide usernames, passwords, secrets...
