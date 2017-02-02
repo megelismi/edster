@@ -30,11 +30,12 @@ passport.use(new GoogleStrategy({
     callbackURL: process.env.CALLBACK_URL
   },
 	function(accessToken, refreshToken, profile, callback) {
+    console.log(profile);
 		User.findOneAndUpdate({ googleID: profile.id },
 			{ $set: {
 				googleID: profile.id,
 				accessToken: accessToken,
-				name: profile.displayName
+				name: profile.name.givenName
 			} },
 			{ upsert: true, setDefaultsOnInsert: true, 'new': true }).then((user) => {
 				callback(null, user)
@@ -126,9 +127,9 @@ const spaceQuestions = (array, lastQuestionAnswered) => {
 	let newArray;
   if (lastQuestionAnswered.correct === 'false') {
     newArray = array.slice(1, array.length);
-		console.log('newArray first', newArray);
+		// console.log('newArray first', newArray);
     newArray.splice(3, 0, lastQuestionAnswered);
-		console.log('newArray', newArray);
+		// console.log('newArray', newArray);
   }
   else {
     var shifted = array.shift();
