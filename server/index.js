@@ -173,3 +173,21 @@ function runServer() {
 if (require.main === module) {
     runServer();
 }
+
+// create stop server function for testing
+function closeServer() {
+  return new Promise((resolve, reject) => {
+    console.log('Closing server');
+    server.close(err => {
+      if (err) {
+        reject(err);
+        // so we don't also call `resolve()`
+        return;
+      }
+      resolve();
+    });
+  });
+}
+
+// export for testing
+export { app, runServer, closeServer };
