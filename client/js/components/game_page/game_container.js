@@ -7,7 +7,7 @@ import OutputCard from './output_card';
 import InputCard from './input_card';
 import Header from './header';
 
-class GameContainer extends React.Component {
+export class GameContainer extends React.Component {
 	constructor (props) {
 		super (props);
 		this.state = {
