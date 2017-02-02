@@ -8,13 +8,14 @@ import InputCard from './input_card';
 import Header from './header';
 
 class GameContainer extends React.Component {
-	constructor () {
-		super ();
+	constructor (props) {
+		super (props);
 		this.state = {
 			correct: 0,
 			incorrect: 0,
 			current: 'start',
-			currentHigh: 0
+			currentHigh: 0,
+			lastCorrect: ''
 		}
 		this.changeCount = this.changeCount.bind(this);
 	}
@@ -25,10 +26,12 @@ class GameContainer extends React.Component {
 		this.props.getQuestionsArray();
 	}
 
-	changeCount (status) {
+	changeCount (obj) {
+		console.log('obj', obj)
+		this.setState({ lastCorrect: obj.correctAnswer });
 		const { correct, incorrect, currentHigh, current } = this.state;
-		const { high_score, highScore } = this.props;
-		status ?
+		const { high_score, highScore, correctAnswer } = this.props;
+		obj.status ?
 			this.setState({ correct: correct + 1, current: true, currentHigh: currentHigh + 1 }) :
 			this.setState({ incorrect: incorrect + 1, current: false, currentHigh: 0 }) ;
 		if (currentHigh + 1 > high_score) { highScore(currentHigh + 1) };
@@ -40,15 +43,15 @@ class GameContainer extends React.Component {
 
 	render () {
 		if (!this.props.selected) {
-			console.log('Refreshing');
 			return <div></div>
 		} else {
+			console.log('state', this.state);
 			return (
 				<div className="game-container">
 					<Header />
 					<div className={'feedback-container'}>
 						<Feedback
-							answer={this.props.selected.english}
+							answer={this.state.lastCorrect}
 							current={this.state.current}
 							correctCount={this.state.currentHigh}
 							user={this.props.user} />

@@ -18,10 +18,14 @@ class InputCard extends React.Component {
 		newObj = Object.assign({}, newObj, {
 			correct: correct.toString(),
 			successes: successCount,
-			failures: failureCount
+			failures: failureCount,
 		});
+		const updateStateObj = {
+			status: correct,
+			correctAnswer: selected.english
+		}
 
-		changeCount(correct);
+		changeCount(updateStateObj);
 		sendResult(newObj);
 
 		this.answer.value = '';
