@@ -133,8 +133,15 @@ describe('Server', () => {
     })
   })
 
-  it('Should update the questions array when the user answers', function (done) {
-    
+  it.only('Should update the questions array when the user answers', function (done) {
+    chai.request(mockedAppWithCorrectId)
+    .put('/users/12/questions')
+    .send({questionBank: []})
+    .end((err,res) => {
+      // res.should.be.json;
+      res.status.should.equal(200); 
+      res.body.should.equal({});
+    })
   })
 
 
