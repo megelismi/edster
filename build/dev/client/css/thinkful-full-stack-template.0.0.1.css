@@ -122,14 +122,14 @@ body {
   background-color: white; }
 
 .input-card-form button {
-  width: 18%;
-  height: 15%;
+  width: 20%;
+  height: 20%;
   border-radius: 2px;
   margin-bottom: 10px;
   background-color: #828A95;
   color: white;
   border: 1px solid #828A95;
-  font-size: 1.1vw;
+  font-size: 12px;
   margin-top: 12px; }
 
 .input-card-form button:hover {
@@ -283,8 +283,7 @@ td, th {
     margin-top: 50px; }
   .input-card-form button {
     width: 18%;
-    height: 18%;
-    font-size: 12px; }
+    height: 18%; }
   .input-card-form input {
     font-size: 26px; }
   .score-btn {
