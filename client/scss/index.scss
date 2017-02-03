@@ -312,11 +312,11 @@ td, th {
 	//landing page
 
     .login-link {
-    line-height: 2rem;
-    height: 2em;
+    line-height: 32px;
+    height: 32px;
     width: 100%;
     height: 40px;
-    font-size: 1.1rem; 
+    font-size: 18px; 
 }
 
 	.login-link-container {
@@ -324,7 +324,7 @@ td, th {
 	}
 
 	.homepage-text {
-		font-size: 2.2rem;
+		font-size: 36px;
 	}
 
 	//flashcards
@@ -348,8 +348,13 @@ td, th {
 
 	.feedback-text {
 		font-size: 26px;
+		margin-top: 70px;
+		margin-bottom: 0; 
 	}
 
+	.cards-container {
+		margin-top: 50px;
+	}
 	.input-card-form button {
 		width: 18%;
 		height: 18%;
@@ -393,24 +398,25 @@ td, th {
 	}
 
 	.dropdown {
-		width: 17%;
+		width: 25%;
+		margin-right: 0px;
 	}
 
-	// .dropdown.js {
-	// 	display: none;
-	// }
+	.cards-container {
+		margin-top: 30px;
+	}
 
 	//landing page
 
    .login-link {
-    	line-height: 1.8rem;
-    	height: 2em;
+    	line-height: 30px;
+    	height: 32px;
     	width: 100%;
-    	font-size: 1.0rem; 
+    	font-size: 16px; 
 	}
 
 	.homepage-text {
-		font-size: 1.5rem;
+		font-size: 24px;
 	}
 
 
@@ -425,7 +431,6 @@ td, th {
 
 	.dropdown {
 		width: 30%;
-		margin-right: 0px;
 	}
 
 	.input-card-form button {
@@ -447,14 +452,14 @@ td, th {
 
 
     .login-link {
-	   line-height: 1.8rem;
-	   height: 1.8rem;
+	   line-height: 28px;
+	   height: 28px;
 	   width: 100%;
-	   font-size: .7rem; 
+	   font-size: 12px; 
 	}
 
 	.homepage-text {
-	font-size: 1.2rem;
+	font-size: 20px;
 }
 
 }
@@ -473,15 +478,15 @@ td, th {
 		font-size: 20px;
 	}
 
-    .login-link {
-    line-height: 1.7rem;
-    height: 2.0rem;
-    width: 100%;
-    font-size: .3rem
-}
+   .login-link {
+    	line-height: 28px;
+    	height: 32px;
+    	width: 100%;
+    	font-size: 10px;
+	}
 
 .homepage-text {
-	font-size: .9rem;
+	font-size: 15px;
 }
 
 }

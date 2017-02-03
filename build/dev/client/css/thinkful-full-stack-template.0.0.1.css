@@ -252,15 +252,15 @@ td, th {
 
 @media only screen and (max-width: 900px) {
   .login-link {
-    line-height: 2rem;
-    height: 2em;
+    line-height: 32px;
+    height: 32px;
     width: 100%;
     height: 40px;
-    font-size: 1.1rem; }
+    font-size: 18px; }
   .login-link-container {
     width: 30%; }
   .homepage-text {
-    font-size: 2.2rem; }
+    font-size: 36px; }
   .dropdown {
     font-size: 16px; }
   .dropdown a {
@@ -270,7 +270,11 @@ td, th {
   .output-card p {
     font-size: 26px; }
   .feedback-text {
-    font-size: 26px; }
+    font-size: 26px;
+    margin-top: 70px;
+    margin-bottom: 0; }
+  .cards-container {
+    margin-top: 50px; }
   .input-card-form button {
     width: 18%;
     height: 18%;
@@ -293,21 +297,23 @@ td, th {
   .logo {
     height: 40px; }
   .dropdown {
-    width: 17%; }
+    width: 25%;
+    margin-right: 0px; }
+  .cards-container {
+    margin-top: 30px; }
   .login-link {
-    line-height: 1.8rem;
-    height: 2em;
+    line-height: 30px;
+    height: 32px;
     width: 100%;
-    font-size: 1.0rem; }
+    font-size: 16px; }
   .homepage-text {
-    font-size: 1.5rem; } }
+    font-size: 24px; } }
 
 @media only screen and (max-width: 470px) {
   .feedback-text, .input-card-form input, .output-card p {
     font-size: 18px; }
   .dropdown {
-    width: 30%;
-    margin-right: 0px; }
+    width: 30%; }
   .input-card-form button {
     width: 18%;
     height: 18%; }
@@ -318,12 +324,12 @@ td, th {
   .logo {
     height: 32px; }
   .login-link {
-    line-height: 1.8rem;
-    height: 1.8rem;
+    line-height: 28px;
+    height: 28px;
     width: 100%;
-    font-size: .7rem; }
+    font-size: 12px; }
   .homepage-text {
-    font-size: 1.2rem; } }
+    font-size: 20px; } }
 
 @media only screen and (max-width: 375px) {
   .input-card-form button {
@@ -333,11 +339,11 @@ td, th {
   .input-card-form input, .output-card p {
     font-size: 20px; }
   .login-link {
-    line-height: 1.7rem;
-    height: 2.0rem;
+    line-height: 28px;
+    height: 32px;
     width: 100%;
-    font-size: .3rem; }
+    font-size: 10px; }
   .homepage-text {
-    font-size: .9rem; } }
+    font-size: 15px; } }
 
 /*# sourceMappingURL=thinkful-full-stack-template.0.0.1.css.map */
