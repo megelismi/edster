@@ -71,6 +71,10 @@ app.get('/auth/logout', (req, res) => {
 
 app.get('/users/:id/questions', passport.authenticate('bearer', { session: false }), jsonParser, (req, res) => {
     const { id } = req.params;
+
+    // if (req.user.googleID !== id) {
+    //   return res.status(403).json({"message": "unauthorized"});
+    // }
     User.findOne({'googleID': id}, (err, data) => {
         if (err){
             console.error(err);

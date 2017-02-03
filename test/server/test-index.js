@@ -17,6 +17,10 @@ describe('Server', () => {
     return closeServer();
   });
 
+  //array of endpoints
+
+  //forEach with the code below, and the only thing that changes is line 26
+
   it('Should prevent unauthorized users', function(done) {
     chai.request(app)
     .get('/users/12/questions')
@@ -25,4 +29,7 @@ describe('Server', () => {
       done();
     });
   });
+
+  //logged in as one user and cannot access other users' info
+  it('Should get ')
 });
