@@ -4,8 +4,8 @@ import Login from './login';
 class Welcome extends React.Component {
 
 	componentWillMount() {
+		// TODO: put this in stylesheet
 		document.body.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(assets/travel.jpg)";
-
 	}
 
 	componentWillUnmount () {
@@ -24,5 +24,5 @@ class Welcome extends React.Component {
 
 export default Welcome;
 
+// TODO: ?
 <img src="/assets/edster-logo.png"/>
-

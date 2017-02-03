@@ -2,7 +2,7 @@ import React from 'react';
 import Dropdown from './dropdown';
 
 
-function Header () {
+export function Header () {
 	return (
 		<div className="header">
 			<img className="logo" src="assets/edster-logo.png"/>

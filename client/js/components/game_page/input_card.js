@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/actions';
 
-class InputCard extends React.Component {
+export class InputCard extends React.Component {
 	constructor () {
 		super ();
 		this.sendData = this.sendData.bind(this);

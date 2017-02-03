@@ -1,12 +1,12 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
 
-function ProgressBtn () {
+export function ProgressBtn () {
 	return (
 		<div className="dropdown">
 			<h6>Menu</h6>
 			<div>
-				Logout 
+				Logout
 			</div>
 			<div>
 				Progress Report

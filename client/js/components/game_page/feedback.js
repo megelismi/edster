@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Feedback (props) {
+export function Feedback (props) {
 	let feedback;
 	const { current, user, correctCount } = props;
 
