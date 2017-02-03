@@ -12,6 +12,7 @@ body {
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover; 
+	margin-bottom: 30px;
 }
 
 @-ms-viewport{
@@ -223,12 +224,15 @@ td, th {
    padding: 8px;
    width: 50%;
    font-size: 1.5vw; 
+
 }
 
 .progress-container {
 	display: flex;
    flex-direction: column;
    align-items: center;
+   text-align: center;
+   padding-bottom: 35px;
 }
 
 .progress-container h1 {
@@ -238,7 +242,7 @@ td, th {
 }
 
 .progress-container p {
-	margin-bottom: 40px;  
+	margin-bottom: 30px;  
 	font-size: 1.7vw; 
 }
 
@@ -280,32 +284,31 @@ td, th {
 }
 
 .about-dev p {
-	font-size: 1.3vw; 
+	font-size: 16px; 
 }
 
 .bio-pic {
 	padding: 15px;
-	width: 100%;  
+	width: 220px;  
 
+}
+
+.about-dev, .indiv-bio {
+	// background-color: yellow;
+	width: 250px;
 }
 
 .about-edster-container {
 	width: 80%; 
 	height: auto; 
-	margin: 0 auto;  
+	margin: 0 auto;
+	// background-color: blue;  
 }
 
 .about-edster-container p {
-	font-size: 1.3vw; 
+	font-size: 16px; 
 }
 
-@media only screen and (max-width: 1600px) {
-   
-}
-
-@media only screen and (max-width: 1440px) {
- 
-}
 
 @media only screen and (max-width: 900px) {
 
@@ -369,6 +372,39 @@ td, th {
 		font-size: 16px;
 	}
 
+	//about
+
+	.about-container h1 {
+		font-size: 32px;
+	}
+
+	.bio-pic {
+		width: 200px;
+	}
+
+	.about-dev, .indiv-bio {
+		width: 220px;
+
+	}
+
+
+	.about-dev p, .about-edster-container p {
+		font-size: 16px;
+	}
+
+	//progress
+
+	.progress-container h1 {
+		font-size: 32px;
+	}
+
+	.progress-container p {
+		font-size: 17px;
+	}
+
+	td, th {
+		font-size: 16px; 
+	}
 
 
 }
@@ -419,6 +455,35 @@ td, th {
 		font-size: 24px;
 	}
 
+		//about
+
+	.about-container h1 {
+		font-size: 28px;
+	}
+
+	.bio-pic {
+		width: 180px;
+	}
+
+	.about-dev, .indiv-bio {
+		width: 220px;
+	}
+
+	.about-dev p, .about-edster-container p {
+		font-size: 14px;
+	}
+
+		//progress
+
+	.progress-container h1 {
+		font-size: 32px;
+	}
+
+	.progress-container p {
+		font-size: 14px;
+	}
+
+
 
 
 }
@@ -459,8 +524,39 @@ td, th {
 	}
 
 	.homepage-text {
-	font-size: 20px;
-}
+		font-size: 20px;
+	}
+
+	//about
+
+	.bio-pic {
+		width: 200px;
+	}
+
+	.about-dev, .indiv-bio {
+		width: 300px;
+	}
+
+	.about-us-container {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	//progress
+
+	.progress-container h1 {
+		font-size: 24px;
+	}
+
+	.progress-container p {
+		font-size: 14px;
+	}
+
+	td, th {
+		font-size: 14px;
+	}
+
 
 }
 
@@ -485,10 +581,19 @@ td, th {
     	font-size: 10px;
 	}
 
-.homepage-text {
-	font-size: 15px;
-}
+	.homepage-text {
+		font-size: 15px;
+	}
 
+	//about 
+
+	.bio-pic {
+		width: 180px;
+	}
+
+	.about-dev, .indiv-bio {
+		width: 270px;
+	}
 }
 
 

@@ -9,7 +9,8 @@ body {
   margin: 0;
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover; }
+  background-size: cover;
+  margin-bottom: 30px; }
 
 @-ms-viewport {
   width: device-width; }
@@ -192,7 +193,9 @@ td, th {
 .progress-container {
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  text-align: center;
+  padding-bottom: 35px; }
 
 .progress-container h1 {
   margin-bottom: 0;
@@ -200,7 +203,7 @@ td, th {
   font-size: 3.0vw; }
 
 .progress-container p {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   font-size: 1.7vw; }
 
 .app-name {
@@ -236,11 +239,14 @@ td, th {
   padding-left: 10px; }
 
 .about-dev p {
-  font-size: 1.3vw; }
+  font-size: 16px; }
 
 .bio-pic {
   padding: 15px;
-  width: 100%; }
+  width: 220px; }
+
+.about-dev, .indiv-bio {
+  width: 250px; }
 
 .about-edster-container {
   width: 80%;
@@ -248,7 +254,7 @@ td, th {
   margin: 0 auto; }
 
 .about-edster-container p {
-  font-size: 1.3vw; }
+  font-size: 16px; }
 
 @media only screen and (max-width: 900px) {
   .login-link {
@@ -282,6 +288,20 @@ td, th {
   .input-card-form input {
     font-size: 26px; }
   .score-btn {
+    font-size: 16px; }
+  .about-container h1 {
+    font-size: 32px; }
+  .bio-pic {
+    width: 200px; }
+  .about-dev, .indiv-bio {
+    width: 220px; }
+  .about-dev p, .about-edster-container p {
+    font-size: 16px; }
+  .progress-container h1 {
+    font-size: 32px; }
+  .progress-container p {
+    font-size: 17px; }
+  td, th {
     font-size: 16px; } }
 
 @media only screen and (max-width: 690px) {
@@ -307,7 +327,19 @@ td, th {
     width: 100%;
     font-size: 16px; }
   .homepage-text {
-    font-size: 24px; } }
+    font-size: 24px; }
+  .about-container h1 {
+    font-size: 28px; }
+  .bio-pic {
+    width: 180px; }
+  .about-dev, .indiv-bio {
+    width: 220px; }
+  .about-dev p, .about-edster-container p {
+    font-size: 14px; }
+  .progress-container h1 {
+    font-size: 32px; }
+  .progress-container p {
+    font-size: 14px; } }
 
 @media only screen and (max-width: 470px) {
   .feedback-text, .input-card-form input, .output-card p {
@@ -329,7 +361,21 @@ td, th {
     width: 100%;
     font-size: 12px; }
   .homepage-text {
-    font-size: 20px; } }
+    font-size: 20px; }
+  .bio-pic {
+    width: 200px; }
+  .about-dev, .indiv-bio {
+    width: 300px; }
+  .about-us-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+  .progress-container h1 {
+    font-size: 24px; }
+  .progress-container p {
+    font-size: 14px; }
+  td, th {
+    font-size: 14px; } }
 
 @media only screen and (max-width: 375px) {
   .input-card-form button {
@@ -344,6 +390,10 @@ td, th {
     width: 100%;
     font-size: 10px; }
   .homepage-text {
-    font-size: 15px; } }
+    font-size: 15px; }
+  .bio-pic {
+    width: 180px; }
+  .about-dev, .indiv-bio {
+    width: 270px; } }
 
 /*# sourceMappingURL=thinkful-full-stack-template.0.0.1.css.map */
