@@ -97,6 +97,7 @@
     "passport": "^0.3.2",
     "passport-google-oauth20": "^1.0.0",
     "passport-http-bearer": "^1.0.1",
+    "proxyquire": "^1.7.11",
     "react": "^15.4.2",
     "react-chartjs": "^0.8.0",
     "react-cookie": "^1.0.4",

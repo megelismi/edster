@@ -69,22 +69,31 @@ app.get('/auth/logout', (req, res) => {
 
 // API ENDPOINTS
 
-app.get('/users/:id/questions', passport.authenticate('bearer', { session: false }), jsonParser, (req, res) => {
+function confirmMatchingUser (req, res, next) {
+   const { id } = req.params;
+   if (req.user.googleID !== id) {
+      return res.status(403).json({"message": "unauthorized"});
+    }
+
+    next();
+}
+
+app.get('/users/:id/questions', passport.authenticate('bearer', { session: false }), jsonParser, confirmMatchingUser, (req, res) => {
     const { id } = req.params;
 
-    // if (req.user.googleID !== id) {
-    //   return res.status(403).json({"message": "unauthorized"});
-    // }
     User.findOne({'googleID': id}, (err, data) => {
         if (err){
             console.error(err);
             res.send(err);
         }
+
+        console.log('body', res.body);
+
         res.status(200).json(data.questionBank[0]);
     });
 });
 
-app.get('/users/:id/questions-array', passport.authenticate('bearer', { session: false }), jsonParser, (req, res) => {
+app.get('/users/:id/questions-array', passport.authenticate('bearer', { session: false }), jsonParser, confirmMatchingUser, (req, res) => {
     const { id } = req.params;
     User.findOne({'googleID': id}, (err, data) => {
         if (err){
@@ -96,8 +105,7 @@ app.get('/users/:id/questions-array', passport.authenticate('bearer', { session:
 });
 
 // redundancy here because bearer token already contains user info
-app.get('/users/:id', passport.authenticate('bearer', { session: false }),
-		(req, res) => {
+app.get('/users/:id', passport.authenticate('bearer', { session: false }),  confirmMatchingUser, (req, res) => {
     const { id } = req.params;
     User.findOne({'googleID': id}, (err, data) => {
         if (err){
@@ -141,9 +149,7 @@ const spaceQuestions = (array, lastQuestionAnswered) => {
   return newArray;
 }
 
-app.get('/hello', () => {
-  res.send({message: "hello"})
-})
+//used by the developers for testing the database
 
 app.post('/users', jsonParser, (req, res) => {
     console.log(req.body)
@@ -159,6 +165,7 @@ app.post('/questions', jsonParser, (req, res) => {
     .catch(err => console.error(err))
 });
 
+//will use later when delete user functionality is added 
 
 app.delete('/users/:id', (req, res) => {
   User.findByIdAndRemove(req.params.id)
