@@ -70,7 +70,7 @@ app.get('/auth/logout', (req, res) => {
 // API ENDPOINTS
 
 function confirmMatchingUser (req, res, next) {
-   // const { id } = req.params;
+   const { id } = req.params;
    if (req.user.googleID !== id) {
       return res.status(403).json({"message": "unauthorized"});
     }
