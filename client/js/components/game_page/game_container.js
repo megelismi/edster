@@ -46,7 +46,11 @@ class GameContainer extends React.Component {
 				<div className="game-container">
 					<Header />
 					<div className={'feedback-container'}>
-						<Feedback current={this.state.current} correctCount={this.state.currentHigh} user={this.props.user} />
+						<Feedback
+							answer={this.props.selected.french}
+							current={this.state.current}
+							correctCount={this.state.currentHigh}
+							user={this.props.user} />
 					</div>
 					<div className={'cards-container'}>
 						<OutputCard question={this.props.selected} />

@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	return ReactDOM.render(
 		<Provider store={store}>
 			<Router history={hashHistory}>
-				<Route path="/welcome" component={LandingContainer} />
+				<Route path="/" component={LandingContainer} />
 				<Route path="/quiz" component={GameContainer} />
 				<Route path="/progress" component={ProgressContainer} />
 				<Route path="/about" component={AboutContainer} />
