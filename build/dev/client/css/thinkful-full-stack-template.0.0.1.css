@@ -66,11 +66,7 @@ body {
 .game-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: white;
-  margin-top: 40px; }
+  width: 100%; }
 
 .dropdown h4:after {
   content: "\f107";
@@ -82,10 +78,10 @@ body {
 
 .score-btn, .feedback-text {
   text-align: center;
-  font-size: 14px; }
+  font-size: 18px;
+  color: white; }
 
 .feedback-text {
-  color: #406E8E;
   font-size: 20px; }
 
 .score-btn {
@@ -105,7 +101,7 @@ body {
   background-color: white;
   border: 1px solid #828A95;
   border-radius: 2px;
-  width: 35%;
+  width: 40%;
   height: 150px;
   display: flex;
   justify-content: center;
@@ -115,8 +111,11 @@ body {
   font-size: 1.8em;
   flex-direction: column; }
 
+.input-card {
+  height: 175px !important; }
+
 .output-card p {
-  font-size: 2.3vw; }
+  font-size: 32px; }
 
 .input-card-form input {
   width: 80%;
@@ -210,58 +209,11 @@ td, th {
     font-size: 1.7vw; }
   .progress-container h1 {
     margin-bottom: 0;
-    color: #406E8E;
+    color: white;
     font-size: 3.0vw; }
 
 .app-name {
   font-family: 'Pacifico', cursive; }
-
-.about-container {
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-  margin-bottom: 20px; }
-
-.about-container h1 {
-  font-size: 3vw; }
-
-.about-us-container {
-  width: 80%;
-  height: auto;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 40px; }
-
-.indiv-bio {
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
-
-.about-dev {
-  width: 100%;
-  text-align: left;
-  padding-left: 10px; }
-
-.about-dev p {
-  font-size: 16px; }
-
-.bio-pic {
-  padding: 15px;
-  width: 220px; }
-
-.about-dev, .indiv-bio {
-  width: 250px; }
-
-.about-edster-container {
-  width: 80%;
-  height: auto;
-  margin: 0 auto; }
-
-.about-edster-container p {
-  font-size: 16px; }
 
 @media only screen and (max-width: 900px) {
   .login-link {
@@ -299,10 +251,6 @@ td, th {
     font-size: 32px; }
   .bio-pic {
     width: 200px; }
-  .about-dev, .indiv-bio {
-    width: 220px; }
-  .about-dev p, .about-edster-container p {
-    font-size: 16px; }
   .progress-container h1 {
     font-size: 32px; }
   .progress-container p {
@@ -334,14 +282,6 @@ td, th {
     font-size: 16px; }
   .homepage-text {
     font-size: 24px; }
-  .about-container h1 {
-    font-size: 28px; }
-  .bio-pic {
-    width: 180px; }
-  .about-dev, .indiv-bio {
-    width: 220px; }
-  .about-dev p, .about-edster-container p {
-    font-size: 14px; }
   .progress-container h1 {
     font-size: 32px; }
   .progress-container p {
@@ -368,14 +308,6 @@ td, th {
     font-size: 12px; }
   .homepage-text {
     font-size: 20px; }
-  .bio-pic {
-    width: 200px; }
-  .about-dev, .indiv-bio {
-    width: 300px; }
-  .about-us-container {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; }
   .progress-container h1 {
     font-size: 24px; }
   .progress-container p {
@@ -396,10 +328,6 @@ td, th {
     width: 100%;
     font-size: 10px; }
   .homepage-text {
-    font-size: 15px; }
-  .bio-pic {
-    width: 180px; }
-  .about-dev, .indiv-bio {
-    width: 270px; } }
+    font-size: 15px; } }
 
 /*# sourceMappingURL=thinkful-full-stack-template.0.0.1.css.map */

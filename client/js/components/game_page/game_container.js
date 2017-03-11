@@ -49,20 +49,22 @@ export class GameContainer extends React.Component {
 			return (
 				<div className="game-container">
 					<Header />
-					<div className={'feedback-container'}>
-						<Feedback
-							answer={this.state.lastCorrect}
-							current={this.state.current}
-							correctCount={this.state.currentHigh}
-							user={this.props.user} />
-					</div>
-					<div className={'cards-container'}>
-						<OutputCard question={this.props.selected} />
-						<InputCard question={this.props.selected} changeCount={this.changeCount} />
-					</div>
-					<div className="scores">
-						<ScoreBtn count={this.state.correct} text="Correct" />
-						<ScoreBtn count={this.state.incorrect} text="Incorrect" />
+					<div className="flashcard-container">
+						<div className={'feedback-container'}>
+							<Feedback
+								answer={this.state.lastCorrect}
+								current={this.state.current}
+								correctCount={this.state.currentHigh}
+								user={this.props.user} />
+						</div>
+						<div className={'cards-container'}>
+							<OutputCard question={this.props.selected} />
+							<InputCard question={this.props.selected} changeCount={this.changeCount} />
+						</div>
+						<div className="scores">
+							<ScoreBtn count={this.state.correct} text="Correct" />
+							<ScoreBtn count={this.state.incorrect} text="Incorrect" />
+						</div>
 					</div>
 				</div>
 			)
