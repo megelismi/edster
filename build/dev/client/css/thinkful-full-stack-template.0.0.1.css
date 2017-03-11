@@ -10,7 +10,8 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  background-color: #406E8E; }
 
 @-ms-viewport {
   width: device-width; }
@@ -36,6 +37,10 @@ body {
   width: 15%;
   text-align: center;
   font-size: 18px; }
+  .dropdown h4 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px; }
 
 .dropdown-content {
   display: none;
@@ -58,14 +63,14 @@ body {
 .dropdown-content a:hover {
   background-color: #f1f1f1; }
 
-.dropdown h4 {
-  margin-top: 10px;
-  margin-bottom: 10px; }
-
 .game-container {
   display: flex;
   flex-direction: column;
-  width: 100%; }
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  margin-top: 40px; }
 
 .dropdown h4:after {
   content: "\f107";
@@ -178,6 +183,9 @@ body {
 .fa-check {
   color: green; }
 
+.progress-table {
+  background-color: white; }
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -196,15 +204,14 @@ td, th {
   align-items: center;
   text-align: center;
   padding-bottom: 35px; }
-
-.progress-container h1 {
-  margin-bottom: 0;
-  color: #406E8E;
-  font-size: 3.0vw; }
-
-.progress-container p {
-  margin-bottom: 30px;
-  font-size: 1.7vw; }
+  .progress-container p {
+    color: white;
+    margin-bottom: 30px;
+    font-size: 1.7vw; }
+  .progress-container h1 {
+    margin-bottom: 0;
+    color: #406E8E;
+    font-size: 3.0vw; }
 
 .app-name {
   font-family: 'Pacifico', cursive; }
