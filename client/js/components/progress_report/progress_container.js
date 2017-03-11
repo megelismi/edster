@@ -48,7 +48,6 @@ class ProgressContainer extends React.Component {
 	                    <h4>Menu</h4>
 	                    <div className="dropdown-content">
 	                        <Link to ={'/quiz'}>Flashcards</Link>
-	                        <Link to={'/about'}>About Us</Link>
 	                        <a href="/auth/logout">Logout</a>
 	                    </div>
 	                </div>
