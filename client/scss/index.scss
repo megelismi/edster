@@ -3,6 +3,8 @@
 	font-family: 'Roboto Condensed', sans-serif;
 }
 
+$blue: #406E8E;
+
 html, body {
 	height: 100%;
 }
@@ -13,7 +15,7 @@ body {
 	background-position: center center;
 	background-size: cover; 
 	margin-bottom: 30px;
-	background-color: #406E8E;
+	background-color: $blue;
 }
 
 @-ms-viewport{
@@ -21,13 +23,13 @@ body {
 }
 
 .homepage {
-    margin: 0 auto;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; 
-    margin-top: 100px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; 
+  margin-top: 100px;
 }
 .homepage-text {
 	color: white; 
@@ -50,12 +52,12 @@ body {
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    width: 100%;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  width: 100%;
 }
 
 .dropdown:hover .dropdown-content {
@@ -63,11 +65,11 @@ body {
 }
 
 .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-size: 16px;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
 }
 
 .dropdown-content a:hover {background-color: #f1f1f1}
@@ -76,10 +78,6 @@ body {
 	display: flex; 
 	flex-direction: column; 
 	width: 100%; 
-	max-width: 800px;
-  margin: 0 auto;
-  background-color: white;
-  margin-top: 40px; 
 }
 
 .dropdown h4:after {
@@ -93,24 +91,24 @@ body {
 
 .score-btn, .feedback-text {
 	text-align: center; 
-	font-size: 14px;  
+	font-size: 18px; 
+	color: white;  
 }
 
 .feedback-text {
-	color: #406E8E;
 	font-size: 20px; 
 }
 
 .score-btn {
 	margin-left: 15px;
-   margin-right: 15px;
-   font-size: 1.5vw;
+  margin-right: 15px;
+  font-size: 1.5vw;
 }
 
 .scores {
-    display: flex;
-    justify-content: center;
-    padding: 15px;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
 }
 
 .feedback-text {
@@ -121,7 +119,7 @@ body {
 	background-color: white;
 	border: 1px solid #828A95;
 	border-radius: 2px; 
-	width: 35%;
+	width: 40%;
 	height: 150px;   
 	display: flex; 
 	justify-content: center; 
@@ -132,29 +130,33 @@ body {
 	flex-direction: column;  
 }
 
+.input-card {
+	height: 175px !important;
+}
+
 .output-card p {
-	font-size: 2.3vw; 
+	font-size: 32px; 
 }
 
 .input-card-form input {
 	 width: 80%;
-    height: 45%;
-    margin-top: 15px; 
-    font-size: 1em;
-    text-align:center;
-    background-color: white; 
+   height: 45%;
+   margin-top: 15px; 
+   font-size: 1em;
+   text-align:center;
+   background-color: white; 
 }
 
 .input-card-form button {
 	width: 20%;
-   height: 20%;
-   border-radius: 2px;
-   margin-bottom: 10px;
-   background-color: #828A95;
-   color: white;
-   border: 1px solid #828A95;
-   font-size: 12px;
-   margin-top: 12px; 
+  height: 20%;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  background-color: #828A95;
+  color: white;
+  border: 1px solid #828A95;
+  font-size: 12px;
+  margin-top: 12px; 
 }
 
 .input-card-form button:hover {
@@ -199,12 +201,11 @@ body {
 
 .login-link-container {
 	 display: flex;
-    height: 51px;
-    width: 20%;
-    float: right;
-    margin: 20px;
+   height: 51px;
+   width: 20%;
+   float: right;
+   margin: 20px;
 }
-
 
 .fa-times {
 	color: red; 
@@ -216,6 +217,10 @@ body {
 
 .progress-table {
 	background-color: white; 
+}
+
+.flashcard-container {
+
 }
 
 table {
@@ -246,7 +251,7 @@ td, th {
   }
   h1 {
    	margin-bottom: 0; 
-		color: #406E8E;
+		color: white;
 		font-size: 3.0vw; 
   }
 }
@@ -255,85 +260,26 @@ td, th {
 	font-family: 'Pacifico', cursive;
 }
 
-.about-container {
-	text-align: center; 
-	width: 100%; 
-	height: 100%; 
-	margin: 0 auto; 
-	margin-bottom: 20px;  
-}
-
-.about-container h1 {
-	font-size: 3vw; 
-}
-.about-us-container {
-	width: 80%; 
-	height: auto; 
-	margin: 0 auto; 
-	display: flex; 
-	justify-content: space-around; 
-	margin-bottom: 40px; 
-}
-
-.indiv-bio {
-	width: 30%; 
-	display: flex;
-   flex-direction: column;  
-   align-items: center; 
-}
-
-.about-dev {
-	width: 100%;
-	text-align: left; 
-	padding-left: 10px; 
-}
-
-.about-dev p {
-	font-size: 16px; 
-}
-
-.bio-pic {
-	padding: 15px;
-	width: 220px;  
-
-}
-
-.about-dev, .indiv-bio {
-	// background-color: yellow;
-	width: 250px;
-}
-
-.about-edster-container {
-	width: 80%; 
-	height: auto; 
-	margin: 0 auto;
-	// background-color: blue;  
-}
-
-.about-edster-container p {
-	font-size: 16px; 
-}
-
 
 @media only screen and (max-width: 900px) {
 
-	//landing page
+//landing page
 
-    .login-link {
-    line-height: 32px;
-    height: 32px;
-    width: 100%;
-    height: 40px;
-    font-size: 18px; 
+.login-link {
+  line-height: 32px;
+  height: 32px;
+  width: 100%;
+  height: 40px;
+  font-size: 18px; 
 }
 
-	.login-link-container {
-	    width: 30%;
-	}
+.login-link-container {
+  width: 30%;
+}
 
-	.homepage-text {
-		font-size: 36px;
-	}
+.homepage-text {
+	font-size: 36px;
+}
 
 	//flashcards
 
@@ -386,15 +332,6 @@ td, th {
 		width: 200px;
 	}
 
-	.about-dev, .indiv-bio {
-		width: 220px;
-
-	}
-
-
-	.about-dev p, .about-edster-container p {
-		font-size: 16px;
-	}
 
 	//progress
 
@@ -459,24 +396,6 @@ td, th {
 		font-size: 24px;
 	}
 
-		//about
-
-	.about-container h1 {
-		font-size: 28px;
-	}
-
-	.bio-pic {
-		width: 180px;
-	}
-
-	.about-dev, .indiv-bio {
-		width: 220px;
-	}
-
-	.about-dev p, .about-edster-container p {
-		font-size: 14px;
-	}
-
 		//progress
 
 	.progress-container h1 {
@@ -486,9 +405,6 @@ td, th {
 	.progress-container p {
 		font-size: 14px;
 	}
-
-
-
 
 }
 
@@ -520,31 +436,15 @@ td, th {
 	}
 
 
-    .login-link {
-	   line-height: 28px;
-	   height: 28px;
-	   width: 100%;
-	   font-size: 12px; 
-	}
+ .login-link {
+   line-height: 28px;
+   height: 28px;
+   width: 100%;
+   font-size: 12px; 
+}
 
 	.homepage-text {
 		font-size: 20px;
-	}
-
-	//about
-
-	.bio-pic {
-		width: 200px;
-	}
-
-	.about-dev, .indiv-bio {
-		width: 300px;
-	}
-
-	.about-us-container {
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
 	}
 
 	//progress
@@ -578,26 +478,17 @@ td, th {
 		font-size: 20px;
 	}
 
-   .login-link {
-    	line-height: 28px;
-    	height: 32px;
-    	width: 100%;
-    	font-size: 10px;
+  .login-link {
+  	line-height: 28px;
+  	height: 32px;
+  	width: 100%;
+  	font-size: 10px;
 	}
 
 	.homepage-text {
 		font-size: 15px;
 	}
 
-	//about 
-
-	.bio-pic {
-		width: 180px;
-	}
-
-	.about-dev, .indiv-bio {
-		width: 270px;
-	}
 }
 
 
