@@ -11,6 +11,7 @@ import GameContainer from './components/game_page/game_container';
 import LandingContainer from './components/landing_page/landing_container';
 import ProgressContainer from './components/progress_report/progress_container';
 import AboutContainer from './components/about_page/about_container';
+import 'whatwg-fetch';
 
 document.addEventListener('DOMContentLoaded', () => {
 	return ReactDOM.render(
