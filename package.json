@@ -94,7 +94,6 @@
     "dotenv": "^4.0.0",
     "express": "^4.14.0",
     "googleapis": "^16.1.0",
-    "isomorphic-fetch": "^2.2.1",
     "mongoose": "^4.7.7",
     "passport": "^0.3.2",
     "passport-google-oauth20": "^1.0.0",
@@ -109,6 +108,7 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.7.4",
     "redux-thunk": "^2.1.0",
-    "thunk": "0.0.1"
+    "thunk": "0.0.1",
+    "whatwg-fetch": "^2.0.3"
   }
 }
