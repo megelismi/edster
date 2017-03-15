@@ -3,7 +3,6 @@ import { hashHistory } from 'react-router';
 import {Link} from 'react-router';
 
 export function Dropdown () {
-  // TODO: change to select menu? Pros/cons of this approach?
   return (
     <div className="dropdown">
       <h4>Menu</h4>
