@@ -1,5 +1,5 @@
 * {
-	box-sizing: border-box; 
+	box-sizing: border-box;
 	font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -11,7 +11,12 @@ body {
 	margin: 0;
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-size: cover; 
+	background-size: cover;
+}
+
+.emphasis {
+  font-weight: bolder;
+  color: red;
 }
 
 .homepage {
@@ -20,22 +25,22 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column; 
+    flex-direction: column;
     margin-top: 100px;
 }
 .homepage-text {
-	color: white; 
+	color: white;
 	font-size: 3.0rem;
-	margin-bottom: 15px; 
-	font-family: 'Roboto', sans-serif; 
+	margin-bottom: 15px;
+	font-family: 'Roboto', sans-serif;
 }
 
 .dropdown {
     position: relative;
- 	 margin-right: 25px; 
+ 	 margin-right: 25px;
     width: 10%;
     text-align: center;
-    font-size: 1.3vw; 
+    font-size: 1.3vw;
 }
 
 .dropdown-content {
@@ -67,9 +72,9 @@ body {
 
 }
 .game-container {
-	display: flex; 
-	flex-direction: column; 
-	width: 100%; 
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 
 }
 
@@ -83,13 +88,13 @@ body {
 }
 
 .score-btn, .feedback-text {
-	text-align: center; 
-	font-size: 14px;  
+	text-align: center;
+	font-size: 14px;
 }
 
 .feedback-text {
 	color: #406E8E;
-	font-size: 20px; 
+	font-size: 20px;
 }
 
 .score-btn {
@@ -107,35 +112,35 @@ body {
 
 
 .feedback-text {
-	font-size: 2.7vw; 
+	font-size: 2.7vw;
 }
 
 .input-card-form, .output-card {
 	background-color: white;
 	border: 1px solid #828A95;
-	border-radius: 2px; 
+	border-radius: 2px;
 	width: 35%;
-	height: 150px;   
-	display: flex; 
-	justify-content: center; 
-	align-items: center; 
-	margin: 15px; 
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 15px;
 	flex-wrap: wrap;
-	font-size: 1.8em; 
-	flex-direction: column;  
+	font-size: 1.8em;
+	flex-direction: column;
 }
 
 .output-card p {
-	font-size: 2.3vw; 
+	font-size: 2.3vw;
 }
 
 .input-card-form input {
 	 width: 80%;
     height: 45%;
-    margin-top: 15px; 
+    margin-top: 15px;
     font-size: 1em;
     text-align:center;
-    background-color: white; 
+    background-color: white;
 }
 
 .input-card-form button {
@@ -147,7 +152,7 @@ body {
    color: white;
    border: 1px solid #828A95;
    font-size: 1.1vw;
-   margin-top: 12px; 
+   margin-top: 12px;
 }
 
 .input-card-form button:hover {
@@ -157,22 +162,22 @@ body {
 }
 
 .cards-container {
-	display: flex; 
+	display: flex;
 	flex-direction: column;
    align-items: center;
 }
 
 
 .header {
-	display: flex; 
-	justify-content: space-between; 
+	display: flex;
+	justify-content: space-between;
 	background-color: white;
-	width: 100%;  
+	width: 100%;
 
 }
 
 .logo {
-	height: 50px; 
+	height: 50px;
 	margin-left: 15px;
 }
 
@@ -187,7 +192,7 @@ body {
     width: 100%;
     height: 50px;
     margin: 0 auto;
-    font-size: 1.4rem; 
+    font-size: 1.4rem;
 }
 
 .login-link-container {
@@ -200,11 +205,11 @@ body {
 
 
 .fa-times {
-	color: red; 
+	color: red;
 }
 
 .fa-check {
-	color: green; 
+	color: green;
 }
 
 table {
@@ -218,7 +223,7 @@ td, th {
    text-align: center;
    padding: 8px;
    width: 50%;
-   font-size: 1.5vw; 
+   font-size: 1.5vw;
 }
 
 .progress-container {
@@ -228,14 +233,14 @@ td, th {
 }
 
 .progress-container h1 {
-	margin-bottom: 0; 
+	margin-bottom: 0;
 	color: #406E8E;
-	font-size: 3.0vw; 
+	font-size: 3.0vw;
 }
 
 .progress-container p {
-	margin-bottom: 40px;  
-	font-size: 1.7vw; 
+	margin-bottom: 40px;
+	font-size: 1.7vw;
 }
 
 .app-name{
@@ -243,56 +248,56 @@ td, th {
 }
 
 .about-container {
-	text-align: center; 
-	width: 100%; 
-	height: 100%; 
-	margin: 0 auto; 
-	margin-bottom: 20px;  
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	margin-bottom: 20px;
 }
 
 .about-container h1 {
-	font-size: 3vw; 
+	font-size: 3vw;
 }
 .about-us-container {
-	width: 80%; 
-	height: auto; 
-	margin: 0 auto; 
-	display: flex; 
-	justify-content: space-around; 
-	margin-bottom: 40px; 
+	width: 80%;
+	height: auto;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 40px;
 }
 
 .indiv-bio {
-	width: 30%; 
+	width: 30%;
 	display: flex;
-   flex-direction: column;  
-   align-items: center; 
+   flex-direction: column;
+   align-items: center;
 }
 
 .about-dev {
 	width: 100%;
-	text-align: left; 
-	padding-left: 10px; 
+	text-align: left;
+	padding-left: 10px;
 }
 
 .about-dev p {
-	font-size: 1.3vw; 
+	font-size: 1.3vw;
 }
 
 .bio-pic {
 	padding: 15px;
-	width: 100%;  
+	width: 100%;
 
 }
 
 .about-edster-container {
-	width: 80%; 
-	height: auto; 
-	margin: 0 auto;  
+	width: 80%;
+	height: auto;
+	margin: 0 auto;
 }
 
 .about-edster-container p {
-	font-size: 1.3vw; 
+	font-size: 1.3vw;
 }
 
 
@@ -302,7 +307,7 @@ td, th {
     height: 2em;
     width: 100%;
     height: 40px;
-    font-size: 1.1rem; 
+    font-size: 1.1rem;
 }
 
 	.login-link-container {
@@ -320,7 +325,7 @@ td, th {
     line-height: 1.8rem;
     height: 2em;
     width: 100%;
-    font-size: 1.0rem; 
+    font-size: 1.0rem;
 }
 
 .homepage-text {
@@ -334,7 +339,7 @@ td, th {
     line-height: 1.8rem;
     height: 1.8rem;
     width: 100%;
-    font-size: .7rem; 
+    font-size: .7rem;
 }
 
 .homepage-text {
@@ -356,5 +361,3 @@ td, th {
 }
 
 }
-
-
