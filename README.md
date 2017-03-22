@@ -26,4 +26,4 @@ Edster uses a spaced repetition algorithm on the server side. According to Wikip
 
 ## Live Demo
 
-http://edster.herokuapp.com/#/welcome
+http://edster.herokuapp.com/
